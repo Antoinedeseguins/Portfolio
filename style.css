@@ -16,10 +16,11 @@
 
 /* Gestion des background */
 body {
-    background-image: url("/assets/identity/background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-
+  background-image: url("/assets/identity/background.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 100vh;
 }
 
 footer {
@@ -299,3 +300,9 @@ footer {
     padding-bottom: 8px;
 }
 
+.bandeau-portfolio {
+    background-color: #1D2635;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
