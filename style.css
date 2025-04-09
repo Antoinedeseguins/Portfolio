@@ -16,7 +16,7 @@
 
 /* Gestion des background */
 body {
-    background-color: #BDC3C7;
+    background-image: url("/assets/identity/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 
