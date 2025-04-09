@@ -16,7 +16,7 @@
 
 /* Gestion des background */
 body {
-    background-image:url('/assets/identity/background.jpg');
+    background-color: #BDC3C7;
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -27,7 +27,7 @@ footer {
 }
 
 /* Définition des polices */
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6 {
     font-family: "Space Grotesk", sans-serif;
 }
 
