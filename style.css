@@ -1,0 +1,301 @@
+/*Variables Couleurs */
+:root {
+    --white: #FFFFFF;
+    --grey: #BDC3C7;
+    --deep-blue: #1D2635;
+    --light-blue: #4A90E2;
+    --yellow: #F1C40F;
+}
+
+/* Réinitialisation des marges globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Gestion des background */
+body {
+    background-image:url('assets/Identity/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+footer {
+    background-color: var(--deep-blue);
+}
+
+/* Définition des polices */
+h1, h2, h3, h4, h5 {
+    font-family: "Space Grotesk", sans-serif;
+}
+
+p {
+    font-family: "Inter", sans-serif;
+}
+
+li, ul, td {
+    font-family: "Inter", sans-serif;
+}
+
+
+/* Styles des titres */
+h1 {
+    font-size: 2.5rem;
+    color: var(--light-blue);
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--yellow);
+    font-weight: 300;
+}
+
+h3 {
+    font-size: 1.5em;
+    color: var(--deep-blue);
+    font-style: italic;
+}
+
+
+/* Styles des paragraphes */
+#interactive-menu p, li, ul, td {
+    color: var(--white);
+    font-size : 1rem ;
+    line-height: 1.8rem;}
+
+.text-highlight1 {
+    color: var(--light-blue);
+    font-weight: 600;
+}
+
+.text-highlight2 {
+    color: var(--yellow);
+    font-weight: 600;
+}
+
+/* Styles des liens */
+header a {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1em;
+    text-decoration: none;
+    color: var(--deep-blue);
+    font-weight: 300;
+}
+
+header a:hover {
+    text-decoration: underline;
+    color: var(--light-blue);
+}
+
+nav a p em.current-page {
+    text-decoration: underline;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.project-bloc a {
+    text-decoration: none;
+    color:var(--deep-blue);
+    font-weight: 400;
+}
+
+.project-bloc a:hover {
+    color:var(--light-blue);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+
+/* Styles des logos */
+ .logo-link {
+    width: 50px;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.logo-link:hover {
+    transform: scale(1.2);
+}
+
+header .logo {
+    max-width: 150px;
+    height: auto;
+}
+
+footer .logo {
+    max-width: 75px;
+    height: auto;
+}
+
+.logo:hover {
+    opacity:0.5;
+}
+
+/*header*/
+/* Nav */
+nav {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 10px 10px;
+}
+
+nav div {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; 
+}
+
+nav a {
+    display: flex;
+    flex-direction: column; /* Empile l'image et le texte */
+    align-items: center; /* Centre le texte sous l'image */
+    gap: 5px;
+}
+
+nav p {
+    text-align: center;
+}
+
+
+/*Footer*/
+footer {
+    display: flex;
+    flex-direction: row;
+    gap : 27px;
+    padding: 10px ;
+    justify-content: flex-end;
+}
+
+
+
+
+
+/* Grille des projets */
+.lined-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    gap: 1rem; 
+    margin-top: 30px;   /* espace au-dessus */
+}
+  
+.lined-title::before,
+.lined-title::after {
+    content: "";
+    border-bottom: 2px solid ;
+    width: 385px;    
+}
+
+.flip-card p {
+    margin-top: 10px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1090px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    padding-top: 30px;
+}
+
+.flip-card {
+    perspective: 1000px;
+    text-align: center;
+}
+
+.flip-card-inner {
+    width: 100%;
+    height: 0;
+    padding-top: 56.25%; /* Ratio 16:9 */
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1.2s;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+}
+
+.flip-card-front img, .flip-card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid #1D2635; /* Border ajoutée aux images */
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+/* interactive menu */
+#interactive-menu {
+    background-color: var(--deep-blue);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    gap: 10px;
+}
+
+#profile-picture img {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+#icon-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+#icon-menu img:hover {
+    transform: scale(1.2);
+}
+
+#icon-menu img {
+    max-width: 75px;
+    cursor: pointer;
+    border: 0.1rem solid var(--deep-blue); 
+}
+
+#content-list {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Content */
+#content {
+    width: 530px;
+    height: 245px;
+    overflow: hidden;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    transform: translateX(-20px); /* Commence légèrement décalé */
+    transition: opacity 1s, transform 2s; /* Transition douce pour opacité et déplacement */
+}
+
+#content h2 {
+    padding-bottom: 8px;
+}
+
