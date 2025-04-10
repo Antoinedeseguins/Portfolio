@@ -396,11 +396,18 @@ footer {
     gap: 10px;
 }
 
+.project-container img {
+    border: 0.1rem solid #1D2635; 
+}
+.image-grid2 img {
+    border: 0.1rem solid #1D2635; 
+}
+
 /* Grille des images */
 .image-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
+    grid-gap: 7px;
     width: 100%;
     max-width: 540px;
 }
@@ -420,4 +427,18 @@ footer {
 
 .image-grid2 img {
     width: 540px;
+}
+
+.documents {
+    border: 0.1rem solid #1D2635; 
+}
+
+.documents-container {
+display: flex;
+justify-content: center;
+padding-bottom: 20px;
+}
+
+.project-container iframe{
+    border: 0.1rem solid #1D2635; 
 }
