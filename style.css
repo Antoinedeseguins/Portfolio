@@ -23,13 +23,12 @@ body {
   min-height: 100vh;
 }
 
-
 footer {
     background-color: var(--deep-blue);
 }
 
 /* Définition des polices */
-h1, h2, h3, h4, h5, h6, h7, h8 {
+h1, h2, h3, h4, h5, h6 {
     font-family: "Space Grotesk", sans-serif;
 }
 
@@ -40,7 +39,6 @@ p {
 li, ul, td {
     font-family: "Inter", sans-serif;
 }
-
 
 /* Styles des titres */
 h1 {
@@ -62,7 +60,7 @@ h3 {
 }
 
 h4 {
-    font-size:2.1rem;
+    font-size: 2.1rem;
     color: var(--light-blue);
     font-weight: 900;
 }
@@ -79,13 +77,11 @@ h6 {
     color: var(--yellow);
 }
 
-
 /* Styles des paragraphes */
 #interactive-menu p, li, ul, td {
     color: var(--white);
-    font-size : 1rem ;
+    font-size: 1rem;
 }
-
 
 .text-highlight1 {
     color: var(--light-blue);
@@ -119,16 +115,15 @@ nav a p em.current-page {
 
 .project-bloc a {
     text-decoration: none;
-    color:var(--deep-blue);
+    color: var(--deep-blue);
     font-weight: 400;
 }
 
 .project-bloc a:hover {
-    color:var(--light-blue);
+    color: var(--light-blue);
     text-decoration: underline;
     font-weight: 600;
 }
-
 
 /* Styles des logos */
 header .logo-link {
@@ -145,7 +140,6 @@ footer .logo-link {
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-
 .logo-link:hover {
     transform: scale(1.2);
 }
@@ -155,9 +149,8 @@ header .logo {
     height: auto;
 }
 
-
 .logo:hover {
-    opacity:0.5;
+    opacity: 0.5;
 }
 
 /*header*/
@@ -166,7 +159,7 @@ nav {
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    padding: 10px 10px;
+    padding: 10px;
 }
 
 nav div {
@@ -177,8 +170,8 @@ nav div {
 
 nav a {
     display: flex;
-    flex-direction: column; /* Empile l'image et le texte */
-    align-items: center; /* Centre le texte sous l'image */
+    flex-direction: column;
+    align-items: center;
     gap: 5px;
 }
 
@@ -186,22 +179,17 @@ nav p {
     text-align: center;
 }
 
-
 /*Footer*/
 footer {
     display: flex;
     flex-direction: row;
-    gap : 27px;
-    padding: 10px ;
+    gap: 27px;
+    padding: 10px;
     justify-content: center;
     margin-right: 10px;
     margin-left: 10px;
     margin-bottom: 10px;
 }
-
-
-
-
 
 /* Grille des projets */
 .lined-title {
@@ -209,13 +197,14 @@ footer {
     align-items: center;
     justify-content: center;  
     gap: 1rem; 
-    margin-top: 30px;   /* espace au-dessus */
+    margin-top: 30px;
+    margin-bottom: 15px;
 }
   
 .lined-title::before,
 .lined-title::after {
     content: "";
-    border-bottom: 2px solid ;
+    border-bottom: 2px solid;
     width: 385px;    
 }
 
@@ -264,7 +253,16 @@ footer {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border: 1px solid #1D2635; /* Border ajoutée aux images */
+    border: 1px solid #1D2635;
+}
+
+/* Assurer que toutes les images de projets ont le même style */
+.flip-card img,
+.image-item img,
+.image-grid2 img,
+.image-grid3 img {
+    object-fit: cover;
+    border: 1px solid #1D2635;
 }
 
 .flip-card-back {
@@ -279,15 +277,14 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px;
     gap: 10px;
 }
 
 #profile-picture {
-    width: 497.78px;          /* fixe la largeur souhaitée */
-    height: 280px;              /* fixe la hauteur souhaitée */
-    overflow: hidden;           /* masque tout dépassement */
+    width: 497.78px;
+    height: 280px;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -296,8 +293,8 @@ footer {
 #profile-picture img {
     width: 100%;
     height: 100%;
-    object-fit: cover;          /* garde le cadre rempli sans déformer */
-    object-position: center;    /* centre l’image dans le cadre */
+    object-fit: cover;
+    object-position: center;
     display: block;
 }
 
@@ -308,13 +305,13 @@ footer {
 }
 
 #icon-menu img:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 #icon-menu img {
     max-width: 70px;
     cursor: pointer;
-    border: 0.1rem solid var(--deep-blue); 
+    border: 0.2rem solid var(--deep-blue); 
 }
 
 #content-list {
@@ -324,7 +321,7 @@ footer {
 
 /* Content */
 #content {
-    width: 497.78px;          /* fixe la largeur souhaitée */
+    width: 497.78px;
     height: 230px;
     overflow: hidden;
     text-align: justify;
@@ -332,18 +329,28 @@ footer {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    transform: translateX(-20px); /* Commence légèrement décalé */
-    transition: opacity 1s, transform 2s; /* Transition douce pour opacité et déplacement */
+    transform: translateX(-20px);
+    transition: opacity 1s, transform 2s;
+    padding: 0 10px 10px 0;
+    min-height: 230px;
 }
-#content p,li,tr,ul {
+
+#content p,
+#content li,
+#content tr,
+#content ul {
     line-height: 1.63;
 }
-#content2 p,li,tr,ul {
+
+#content2 p,
+#content2 li,
+#content2 tr,
+#content2 ul {
     line-height: 1.5;
 }
 
 #content2 {
-    width: 497.78px;          /* fixe la largeur souhaitée */
+    width: 497.78px;
     height: 190px;
     overflow: hidden;
     text-align: justify;
@@ -351,8 +358,10 @@ footer {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    transform: translateX(-20px); /* Commence légèrement décalé */
-    transition: opacity 1s, transform 2s; /* Transition douce pour opacité et déplacement */
+    transform: translateX(-20px);
+    transition: opacity 1s, transform 2s;
+    padding: 0 10px 10px 0;
+    min-height: 190px;
 }
 
 #content h2 {
@@ -367,7 +376,7 @@ footer {
     padding-bottom: 5px;
 }
 
-
+/*bandeau portfolio*/
 .bandeau-portfolio {
     text-align: center;
     margin-left: 10px;
@@ -377,28 +386,23 @@ footer {
 }
 
 .bordered-container {
-    display: inline-block; /* Pour que le conteneur ajuste sa taille au contenu */
-    padding: 20px; /* Espacement autour des titres à l'intérieur du carré */
-    border: 1px solid var(--light-blue); /* Bordure noire autour du conteneur */
-    text-align: center; /* Centrer les titres dans le carré */
-    padding: 30px 415px; /* Augmente l'espace autour du contenu pour agrandir le carré */
+    display: inline-block;
+    padding: 30px 415px;
+    border: 1px solid var(--light-blue);
+    text-align: center;
 }
 
-
-
-/*Project pages*/
+/*PAGES DE PROJETs*/
 /* Conteneur principal */
 .project-container {
-    display: flex ;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    display: flex;
     justify-content: center;
     gap: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
-.project-container img {
-    border: 0.1rem solid #1D2635; 
-}
+.project-container img,
 .image-grid2 img {
     border: 0.1rem solid #1D2635; 
 }
@@ -407,7 +411,7 @@ footer {
 .image-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 7px;
+    grid-gap: 10px;
     width: 100%;
     max-width: 540px;
 }
@@ -419,14 +423,26 @@ footer {
 }
 
 .image-grid2 {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+    max-width: 1090px;
+    margin: 0 auto;
     padding-bottom: 10px;
 }
 
 .image-grid2 img {
+    width: 100%;
+    max-width: 540px;
+    height: auto;
+    /* Assurer la même hauteur que les images de la page d'accueil */
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.image-grid3 img {
     width: 540px;
+    height: 315px;
 }
 
 .documents {
@@ -434,11 +450,414 @@ footer {
 }
 
 .documents-container {
-display: flex;
-justify-content: center;
-padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
 }
 
-.project-container iframe{
-    border: 0.1rem solid #1D2635; 
+.project-container iframe,
+.iframebot iframe {
+    border: 1px solid #1D2635; 
+}
+
+.iframebot {
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+    max-width: 1090px;
+}
+
+.logo-jeu {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.logo-jeu img {
+    width: 100%;
+    max-width: 1090px;
+}
+
+/* MEDIA QUERIES */
+
+/* Pour tablettes et petits écrans d'ordinateur (max-width: 1200px) */
+@media screen and (max-width: 1200px) {
+    .lined-title::before,
+    .lined-title::after {
+        width: 300px;
+    }
+    
+    .bordered-container {
+        padding: 25px 300px;
+    }
+    
+    .image-grid2 {
+        max-width: 900px;
+    }
+    
+    .iframebot iframe {
+        width: 900px;
+    }
+}
+
+/* Pour tablettes et petits écrans d'ordinateur (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+    /* Ajustement de la grille de projets */
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 720px;
+    }
+    
+    /* Ajustement du titre souligné */
+    .lined-title {
+        font-size: 1.3rem;
+        gap: 0.8rem;
+    }
+    
+    .lined-title::before,
+    .lined-title::after {
+        width: 180px;
+    }
+    
+    /* Ajustement des dimensions du menu interactif */
+    #profile-picture {
+        width: 400px;
+        height: auto;
+        min-height: 225px;
+    }
+    
+    #content, #content2 {
+        width: 400px;
+        height: 230px;
+    }
+    
+    #content2 {
+        height: 190px;
+    }
+    
+    /* Ajustement du conteneur bordé */
+    .bordered-container {
+        padding: 20px 200px;
+    }
+    
+    /* Ajustement de la grille d'images */
+    .image-grid2 {
+        max-width: 800px;
+    }
+    
+    .image-grid2 img {
+        max-width: 390px;
+    }
+    
+    .image-grid3 img {
+        width: 100%;
+        max-width: 390px;
+        height: auto;
+    }
+    
+    .iframebot iframe {
+        width: 800px;
+        height: 300px;
+    }
+}
+
+/* Pour les tablettes moyennes (max-width: 900px) */
+@media screen and (max-width: 900px) {
+    .lined-title::before,
+    .lined-title::after {
+        width: 140px;
+    }
+    
+    .bordered-container {
+        padding: 15px 150px;
+    }
+    
+    .image-grid2 {
+        max-width: 700px;
+    }
+    
+    .image-grid2 img {
+        max-width: 340px;
+    }
+    
+    .iframebot iframe {
+        width: 700px;
+        height: 280px;
+    }
+}
+
+/* Pour petites tablettes (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    /* Navigation reste horizontale mais adaptée */
+    nav {
+        gap: 10px;
+    }
+    
+    nav a {
+        gap: 3px;
+    }
+    
+    header .logo {
+        max-width: 120px;
+    }
+    
+    header .logo-link {
+        width: 40px;
+    }
+    
+    /* Amélioration de l'affichage du titre souligné */
+    .lined-title {
+        font-size: 1.2rem;
+        gap: 0.6rem;
+    }
+    
+    .lined-title::before,
+    .lined-title::after {
+        width: 100px;
+        border-bottom: 1px solid;
+    }
+    
+    /* Ajustement du menu interactif en disposition verticale */
+    #interactive-menu {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #profile-picture {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        min-height: 197px;
+    }
+    
+    #icon-menu {
+        flex-direction: row;
+        justify-content: center;
+        margin: 10px 0;
+    }
+    
+    #icon-menu img {
+        max-width: 75px;
+    }
+    
+    /* Content list centré sur mobile */
+    #content-list {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    #content-list h1,
+    #content-list h4,
+    #content-list h5 {
+        text-align: center;
+    }
+    
+    /* Solution renforcée pour centrer h2 et h6 dans les contenus */
+    #content h2,
+    #content2 h2,
+    #content h6,
+    #content2 h6 {
+        text-align: center !important;
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    #content, #content2 {
+        width: 100%;
+        max-width: 350px;
+        height: 300px; /* Augmenté pour montrer plus de texte */
+        min-height: 300px;
+        margin: 0 auto;
+        transform: translateX(0);
+    }
+    
+    #content2 {
+        height: 250px; /* Augmenté pour montrer plus de texte */
+        min-height: 250px;
+    }
+    
+    #content, #content2 {
+        width: 100%;
+        max-width: 350px;
+        height: 300px; /* Augmenté pour montrer plus de texte */
+        min-height: 300px;
+        margin: 0 auto;
+        transform: translateX(0);
+    }
+    
+    #content2 {
+        height: 250px; /* Augmenté pour montrer plus de texte */
+        min-height: 250px;
+    }
+    
+    /* Ajustement de la grille de projets */
+    .project-grid {
+        grid-template-columns: 1fr;
+        max-width: 350px;
+    }
+    
+    /* Ajustement du conteneur bordé */
+    .bordered-container {
+        padding: 15px 50px;
+    }
+    
+    /* Harmonisation des images */
+    .project-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .image-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        width: 100%;
+        max-width: 350px;
+    }
+    
+    .image-item img {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+    }
+    
+    .image-grid2 {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        max-width: 350px;
+    }
+    
+    .image-grid2 img,
+    .image-grid3 img,
+    .project-container iframe {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+    }
+    
+    .iframebot iframe {
+        width: 350px;
+        height: 200px;
+    }
+}
+
+/* Pour smartphones (max-width: 576px) */
+@media screen and (max-width: 576px) {
+    header .logo {
+        max-width: 120px;
+    }
+    
+    header .logo-link {
+        max-width: 30px;
+    }
+    
+    /* Amélioration de l'affichage du titre souligné */
+    .lined-title {
+        font-size: 1.1rem;
+        gap: 0.5rem;
+    }
+    
+    .lined-title::before,
+    .lined-title::after {
+        width: 70px;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h4 {
+        font-size: 1.9rem;
+    }
+    
+    .bordered-container {
+        padding: 10px 30px;
+    }
+}
+
+/* Pour très petits écrans (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h4 {
+        font-size: 1.8rem;
+    }
+    
+    /* Rendre le titre souligné plus compact */
+    .lined-title {
+        font-size: 1rem;
+        gap: 0.4rem;
+        justify-content: space-around;
+    }
+    
+    .lined-title::before,
+    .lined-title::after {
+        width: 50px;
+    }
+    
+    #content, #content2,
+    #profile-picture,
+    .image-grid,
+    .image-grid2,
+    .image-item img,
+    .image-grid2 img,
+    .image-grid3 img,
+    .project-container iframe,
+    .iframebot iframe {
+        max-width: 300px;
+    }
+    
+    /* Garder les icônes plus grandes pour meilleure visibilité */
+    #icon-menu img {
+        max-width: 75px;
+    }
+    
+    .bordered-container {
+        padding: 10px 20px;
+    }
+}
+
+/* Pour écrans extrêmement petits (max-width: 350px) */
+@media screen and (max-width: 350px) {
+    .lined-title::before,
+    .lined-title::after {
+        width: 40px;
+    }
+    
+    .lined-title {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h4 {
+        font-size: 1.6rem;
+    }
+    
+    #content, #content2,
+    #profile-picture,
+    .image-grid,
+    .image-grid2,
+    .image-item img,
+    .image-grid2 img,
+    .image-grid3 img,
+    .project-container iframe,
+    .iframebot iframe {
+        max-width: 280px;
+    }
+    
+    #icon-menu img {
+        max-width: 75px;
+    }
+    
+    .bordered-container {
+        padding: 8px 15px;
+    }
 }

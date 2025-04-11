@@ -1,19 +1,19 @@
 // Section par défaut au démarrage
-let activeSection = "home-aboutme";
+let activeSection = "vahana-about";
 
 // Fonction pour charger dynamiquement le contenu depuis un fichier HTML
 const loadContent = (section) => {
-    const contentElement = document.querySelector("#content");
+    const contentElement = document.querySelector("#content2"); // Cibler content2
 
     // Animation : on réinitialise avant le changement de contenu
     contentElement.style.opacity = 0;
     contentElement.style.transform = "translateX(-15px)";
 
     // Charger le contenu HTML depuis le dossier
-    fetch(`components/interactive-menu/${section}.html`)
+    fetch(`components/vahana/${section}.html`)
         .then(response => {
             if (!response.ok) {
-                throw new Error('Failed to load content');
+                throw new Error('Échec du chargement du contenu');
             }
             return response.text();
         })
@@ -22,7 +22,7 @@ const loadContent = (section) => {
             setTimeout(() => {
                 contentElement.innerHTML = htmlContent;
 
-                // Redémarrer la transition d'apparition
+                // Redémarrer la transition d’apparition
                 contentElement.style.transition = "none";
                 setTimeout(() => {
                     contentElement.style.transition = "opacity 1s ease, transform 1s ease";
@@ -32,8 +32,8 @@ const loadContent = (section) => {
             }, 300);
         })
         .catch(error => {
-            console.error("Error loading content:", error);
-            contentElement.innerHTML = "<p>Failed to load the content. Please try again later.</p>";
+            console.error("Erreur lors du chargement du contenu :", error);
+            contentElement.innerHTML = "<p>Échec du chargement du contenu. Veuillez réessayer plus tard.</p>";
         });
 };
 
@@ -60,25 +60,14 @@ const updateActiveIcons = (activeSection) => {
     });
 };
 
-// Ajout des événements de survol et de clic pour chaque icône
+// Ajout des événements de survol pour chaque icône
 document.querySelectorAll("#icon-menu img").forEach(icon => {
-    // Événement de survol pour desktop
     icon.addEventListener("mouseover", () => {
         const section = icon.dataset.section;
         if (section !== activeSection) {
             activeSection = section;
             updateActiveIcons(activeSection);
-            loadContent(activeSection);
-        }
-    });
-    
-    // Événement de clic pour mobile
-    icon.addEventListener("click", () => {
-        const section = icon.dataset.section;
-        if (section !== activeSection) {
-            activeSection = section;
-            updateActiveIcons(activeSection);
-            loadContent(activeSection);
+            loadContent(activeSection); // Charge dans #content2
         }
     });
 });
@@ -86,10 +75,9 @@ document.querySelectorAll("#icon-menu img").forEach(icon => {
 // Chargement initial
 document.addEventListener("DOMContentLoaded", () => {
     updateActiveIcons(activeSection);
-    loadContent(activeSection);
+    loadContent(activeSection); // Charge dans #content2
 });
 
-// Gestion des icônes de navigation
 document.querySelectorAll('.nav-icon').forEach(img => {
     img.addEventListener('mouseover', () => {
       img.src = img.dataset.hover;
