@@ -98,3 +98,4 @@ document.querySelectorAll('.nav-icon').forEach(img => {
       img.src = img.dataset.default;
     });
 });
+
