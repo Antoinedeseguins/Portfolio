@@ -908,3 +908,85 @@ footer {
         animation: none !important;
     }
 }
+
+/* Pour les écrans de téléphone */
+/* Pour les écrans de téléphone moyens (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    /* Vos styles existants... */
+    
+    /* Augmentation légère pour les écrans moyens */
+    #interactive-menu {
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 15px;
+    }
+    
+    #content {
+        width: 100%;
+        max-width: 350px;
+        height: 310px;
+        min-height: 310px;
+        margin: 0 auto;
+        transform: translateX(0);
+    }
+    
+    #content2 {
+        width: 100%;
+        max-width: 350px;
+        height: 260px;
+        min-height: 260px;
+        margin: 0 auto;
+        transform: translateX(0);
+    }
+}
+
+/* Pour les petits écrans (max-width: 576px) */
+@media screen and (max-width: 576px) {
+    #interactive-menu {
+        padding-bottom: 20px;
+    }
+    
+    #content {
+        height: 325px;
+        min-height: 325px;
+    }
+    
+    #content2 {
+        height: 275px;
+        min-height: 275px;
+    }
+}
+
+/* Pour les très petits écrans (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    #interactive-menu {
+        padding-bottom: 25px;
+    }
+    
+    #content {
+        height: 340px;
+        min-height: 340px;
+    }
+    
+    #content2 {
+        height: 290px;
+        min-height: 290px;
+    }
+}
+
+/* Pour les écrans extrêmement petits (max-width: 350px) */
+@media screen and (max-width: 350px) {
+    #interactive-menu {
+        padding-bottom: 30px;
+    }
+    
+    #content {
+        height: 355px;
+        min-height: 355px;
+    }
+    
+    #content2 {
+        height: 305px;
+        min-height: 305px;
+    }
+}
