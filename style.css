@@ -347,12 +347,12 @@ footer {
 #content2 li,
 #content2 tr,
 #content2 ul {
-    line-height: 1.5;
+    line-height: 1.45;
 }
 
 #content2 {
     width: 497.78px;
-    height: 190px;
+    height: 197px;
     overflow: hidden;
     text-align: justify;
     display: flex;
@@ -477,6 +477,13 @@ footer {
 .logo-jeu img {
     width: 100%;
     max-width: 1090px;
+}
+
+.logo-tools {
+    padding-top: 10px;
+}
+.logo-tools img {
+    width: 35px ;
 }
 
 /* MEDIA QUERIES */
