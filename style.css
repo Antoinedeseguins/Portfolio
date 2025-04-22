@@ -486,6 +486,13 @@ footer {
     width: 35px ;
 }
 
+
+/*TABLEAU EXPERIENCE*/
+.tableau-xp {
+    padding-left: 3px;
+  }
+  
+
 /* MEDIA QUERIES */
 
 /* Pour tablettes et petits écrans d'ordinateur (max-width: 1200px) */
