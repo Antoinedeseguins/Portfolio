@@ -496,7 +496,7 @@ footer {
 .division-tableau-love {
     display: flex;
     flex-direction: row;
-    gap: 40px ;
+    gap: 30px ;
 }
 
 .colone-tableau-love {
