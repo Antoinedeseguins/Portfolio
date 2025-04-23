@@ -389,7 +389,7 @@ footer {
 .bordered-container {
     display: inline-block;
     padding: 30px 415px;
-    border: 1px solid var(--light-blue);
+    /*border: 1px solid var(--light-blue);*/ /*pour remettre le carré autour*/
     text-align: center;
 }
 
@@ -492,6 +492,30 @@ footer {
     padding-left: 3px;
   }
   
+/*TABLEAU LOVE*/
+.division-tableau-love {
+    display: flex;
+    flex-direction: row;
+    gap: 40px ;
+}
+
+.colone-tableau-love {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.ligne-tableau-love {
+    display: flex;
+    gap: 5px;
+  }
+
+.ligne-tableau-love img {
+    max-width: 33px;
+    padding-right: 2px;
+  }
+
+
 
 /* MEDIA QUERIES */
 
