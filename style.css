@@ -28,7 +28,7 @@ footer {
 }
 
 /* Définition des polices */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, h7, h8 {
     font-family: "Space Grotesk", sans-serif;
 }
 
@@ -93,6 +93,9 @@ h6 {
     font-weight: 600;
 }
 
+.text-skills {
+    font-size: 0.83rem;
+}
 /* Styles des liens */
 header a {
     font-family: "Space Grotesk", sans-serif;
@@ -366,7 +369,7 @@ footer {
 }
 
 #content h2 {
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 #content2 h6 {
@@ -492,26 +495,38 @@ footer {
     padding-left: 3px;
   }
   
+ /*TABLEAU SKILLS*/
+.logo-skills img {
+    max-width: 28px;
+    max-height: 28px;
+ }
+
+.logo-skills {
+    padding-top: 3px;
+}
+  
 /*TABLEAU LOVE*/
 .division-tableau-love {
     display: flex;
     flex-direction: row;
-    gap: 30px ;
+    gap: 50px ;
+    padding-top: 10px;
 }
 
 .colone-tableau-love {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
 }
 
 .ligne-tableau-love {
     display: flex;
-    gap: 5px;
+    gap: px;
   }
 
 .ligne-tableau-love img {
     max-width: 33px;
+    max-height: 33px;
     padding-right: 2px;
   }
 
@@ -521,10 +536,15 @@ footer {
 
 /* Pour tablettes et petits écrans d'ordinateur (max-width: 1200px) */
 @media screen and (max-width: 1200px) {
+
+
+
     .lined-title::before,
     .lined-title::after {
         width: 300px;
     }
+
+
     
     .bordered-container {
         padding: 25px 300px;
@@ -602,6 +622,19 @@ footer {
 
 /* Pour les tablettes moyennes (max-width: 900px) */
 @media screen and (max-width: 900px) {
+
+    .logo-skills {
+        display: flex;
+        justify-content: center;
+        width: 100%; /* S'assurer que la div prend toute la largeur */
+        gap : 5px
+
+      }
+
+      .division-tableau-love {
+        gap: 5px ;
+ 
+    }
     .lined-title::before,
     .lined-title::after {
         width: 140px;
@@ -628,6 +661,7 @@ footer {
 /* Pour petites tablettes (max-width: 768px) */
 @media screen and (max-width: 768px) {
     /* Navigation reste horizontale mais adaptée */
+
     nav {
         gap: 10px;
     }
@@ -780,6 +814,7 @@ footer {
         width: 350px;
         height: 200px;
     }
+
 }
 
 /* Pour smartphones (max-width: 576px) */
