@@ -521,7 +521,7 @@ footer {
 
 .ligne-tableau-love {
     display: flex;
-    gap: px;
+    gap: 5px;
   }
 
 .ligne-tableau-love img {
@@ -634,6 +634,10 @@ footer {
       .division-tableau-love {
         gap: 5px ;
  
+    }
+
+    .ligne-tableau-love {
+        gap : 0px;
     }
     .lined-title::before,
     .lined-title::after {
