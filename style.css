@@ -21,10 +21,14 @@ body {
   background-attachment: fixed;
   background-position: center;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  
 }
 
 footer {
     background-color: var(--deep-blue);
+    margin-top: auto;
 }
 
 /* Définition des polices */
