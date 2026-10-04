@@ -1103,6 +1103,12 @@ footer {
         row-gap: 15px;
     }
 
+    .project-container,
+    .image-grid2 {
+        max-width: calc(var(--portfolio-panel-width) * 2 + var(--portfolio-menu-icon) + 30px);
+        column-gap: 15px;
+    }
+
     .lined-title {
         padding-left: 0;
         padding-right: 0;
