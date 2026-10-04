@@ -843,6 +843,13 @@ footer {
 
 @media screen and (max-width: 1400px),
        screen and (hover: none) and (pointer: coarse) {
+    #content .division-tableau-love {
+        grid-template-columns: repeat(2, minmax(0, max-content));
+        justify-content: center;
+        column-gap: clamp(20px, 5vw, 48px);
+        padding-left: 12px;
+    }
+
     #content .timeline {
         table-layout: fixed;
         border-collapse: collapse;
@@ -1085,8 +1092,8 @@ footer {
     }
 
     #content .division-tableau-love {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 8px 12px;
+        grid-template-columns: repeat(2, minmax(0, max-content));
+        gap: 8px 20px;
     }
 
     #content .colone-tableau-love {
