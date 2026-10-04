@@ -689,6 +689,7 @@ footer {
 
     .project-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-bottom: 22px;
     }
 
     .lined-title {
@@ -1063,6 +1064,26 @@ footer {
 }
 
 @media screen and (min-width: 1401px) and (hover: hover) {
+    .project-grid,
+    .lined-title {
+        width: calc(100% - 40px);
+        max-width: calc(var(--portfolio-panel-width) * 2 + var(--portfolio-menu-icon) + 30px);
+    }
+
+    .project-grid {
+        gap: 25px;
+    }
+
+    .lined-title {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .lined-title::before,
+    .lined-title::after {
+        max-width: none;
+    }
+
     #content .division-tableau-love {
         grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr) minmax(0, 1.15fr);
     }
