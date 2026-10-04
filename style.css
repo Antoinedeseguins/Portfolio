@@ -929,6 +929,19 @@ footer {
     }
 }
 
+@media screen and (min-width: 901px) {
+    .dough-gallery > div:first-child,
+    .project-container > div:first-child:has(iframe[src*="youtube.com/embed/"]) {
+        min-height: 0;
+    }
+
+    .dough-gallery iframe,
+    .project-container iframe[src*="youtube.com/embed/"] {
+        height: 100%;
+        aspect-ratio: auto;
+    }
+}
+
 @media screen and (max-width: 900px) {
     .project-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1127,6 +1140,10 @@ footer {
     .image-grid2 {
         max-width: calc(var(--portfolio-panel-width) * 2 + var(--portfolio-menu-icon) + 30px);
         column-gap: 15px;
+    }
+
+    .iframebot {
+        max-width: calc(var(--portfolio-panel-width) * 2 + var(--portfolio-menu-icon) + 30px);
     }
 
     .lined-title {

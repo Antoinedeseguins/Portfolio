@@ -10,9 +10,13 @@
                 })
                 .then(html => {
                     const page = new DOMParser().parseFromString(html, "text/html");
-                    return [...new Set([...page.querySelectorAll(
+                    const images = [...page.querySelectorAll(
                         ".image-grid img, .image-grid2 img, .image-grid3 img"
-                    )].map(img => new URL(img.getAttribute("src"), projectUrl).href))];
+                    )].map(img => new URL(img.getAttribute("src"), projectUrl).href);
+                    const excluded = new URL(projectUrl).pathname.endsWith("/spaceage.html")
+                        ? new Set(images.slice(0, 2))
+                        : new Set();
+                    return [...new Set(images)].filter(url => !excluded.has(url));
                 })
                 .catch(() => []));
         }
