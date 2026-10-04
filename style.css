@@ -226,7 +226,7 @@ footer {
     max-width: 1090px;
     margin: 0 auto;
     margin-bottom: 30px;
-    padding-top: 30px;
+    padding-top: 40px;
 }
 
 .flip-card {
@@ -276,6 +276,13 @@ footer {
     transform: rotateY(180deg);
 }
 
+.flip-card-back .card-slideshow-layer {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
 /* interactive menu */
 #interactive-menu {
     margin-left: 10px;
@@ -289,6 +296,7 @@ footer {
 }
 
 #profile-picture {
+    position: relative;
     width: 497.78px;
     height: 280px;
     overflow: hidden;
@@ -303,6 +311,13 @@ footer {
     object-fit: cover;
     object-position: center;
     display: block;
+}
+
+#profile-picture .profile-transition-layer {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
 }
 
 #icon-menu {
@@ -390,7 +405,7 @@ footer {
     margin-left: 10px;
     margin-right: 10px;
     background-color: #1D2635;
-    padding: 20px;
+    padding: 0px 20px;
 }
 
 .bordered-container {
@@ -797,6 +812,7 @@ footer {
     .image-grid,
     .image-grid2 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 15px;
     }
 
     .image-grid {
@@ -1100,7 +1116,7 @@ footer {
 
     .project-grid {
         gap: 25px;
-        row-gap: 15px;
+        row-gap: 30px;
     }
 
     .project-container,

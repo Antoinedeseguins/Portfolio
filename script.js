@@ -1,8 +1,78 @@
 // Section par défaut au démarrage
 let activeSection = "home-aboutme";
 
+// Home image associated with each interactive category.
+const profileImages = {
+    "home-aboutme": { src: "/assets/identity/profile.png", alt: "Antoine de Seguins — About me" },
+    "home-experience": { src: "/assets/identity/profile2.png ", alt: "Antoine de Seguins — My Experience" },
+    "home-skills": { src: "/assets/identity/profile3.png", alt: "Antoine de Seguins — My Skills" },
+    "home-love": { src: "/assets/identity/profile4.png", alt: "Antoine de Seguins — What I Love" }
+};
+
+const profileLoads = new Map();
+let profileRequest = 0;
+let profileAnimation;
+let profileOverlay;
+
+const updateProfileImage = async section => {
+    const picture = document.querySelector("#profile-picture img");
+    const next = profileImages[section];
+    if (!picture || !next) return;
+
+    const request = ++profileRequest;
+    if (profileAnimation) {
+        profileAnimation.cancel();
+        profileAnimation = null;
+    }
+    if (profileOverlay) {
+        profileOverlay.remove();
+        profileOverlay = null;
+    }
+    if (picture.getAttribute("src") === next.src) return;
+
+    if (!profileLoads.has(next.src)) {
+        profileLoads.set(next.src, new Promise(resolve => {
+            const image = new Image();
+            image.onload = () => resolve(true);
+            image.onerror = () => resolve(false);
+            image.src = next.src;
+        }));
+    }
+    const loaded = await profileLoads.get(next.src);
+    if (!loaded || request !== profileRequest) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        picture.src = next.src;
+        picture.alt = next.alt;
+        return;
+    }
+
+    profileOverlay = picture.cloneNode(false);
+    profileOverlay.src = next.src;
+    profileOverlay.alt = "";
+    profileOverlay.removeAttribute("id");
+    profileOverlay.setAttribute("aria-hidden", "true");
+    profileOverlay.classList.add("profile-transition-layer");
+    picture.parentElement.appendChild(profileOverlay);
+
+    profileAnimation = profileOverlay.animate([{ opacity: 0 }, { opacity: 1 }], {
+        duration: 700,
+        easing: "ease-in-out",
+        fill: "forwards"
+    });
+    await profileAnimation.finished.catch(() => {});
+    if (request !== profileRequest) return;
+
+    picture.src = next.src;
+    picture.alt = next.alt;
+    profileOverlay.remove();
+    profileOverlay = null;
+    profileAnimation = null;
+};
+
 // Fonction pour charger dynamiquement le contenu depuis un fichier HTML
 const loadContent = (section) => {
+    updateProfileImage(section);
     const contentElement = document.querySelector("#content");
 
     // Animation : on réinitialise avant le changement de contenu

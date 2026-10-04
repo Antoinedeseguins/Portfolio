@@ -35,6 +35,8 @@
         const originalSrc = back.getAttribute("src");
         const originalUrl = back.src;
         let timer;
+        let overlay;
+        let fade;
         let session = 0;
         let hovered = false;
 
@@ -42,6 +44,10 @@
             hovered = false;
             session++;
             window.clearTimeout(timer);
+            if (fade) fade.cancel();
+            if (overlay) overlay.remove();
+            fade = null;
+            overlay = null;
             back.setAttribute("src", originalSrc);
         };
 
@@ -61,9 +67,32 @@
                 const loaded = await preload(nextUrl);
                 if (!hovered || session !== currentSession) return;
 
-                if (loaded) back.src = nextUrl;
+                let fadeDuration = 0;
+                if (loaded) {
+                    overlay = back.cloneNode(false);
+                    overlay.src = nextUrl;
+                    overlay.alt = "";
+                    overlay.removeAttribute("id");
+                    overlay.setAttribute("aria-hidden", "true");
+                    overlay.classList.add("card-slideshow-layer");
+                    back.parentElement.appendChild(overlay);
+
+                    fadeDuration = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 350;
+                    fade = overlay.animate([{ opacity: 0 }, { opacity: 1 }], {
+                        duration: fadeDuration,
+                        easing: "ease-in-out",
+                        fill: "forwards"
+                    });
+                    await fade.finished.catch(() => {});
+                    if (!hovered || session !== currentSession) return;
+
+                    back.src = nextUrl;
+                    overlay.remove();
+                    overlay = null;
+                    fade = null;
+                }
                 nextIndex++;
-                timer = window.setTimeout(showNext, 2000);
+                timer = window.setTimeout(showNext, 2000 - fadeDuration);
             };
 
             const style = window.getComputedStyle(inner);
