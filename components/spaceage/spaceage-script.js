@@ -75,16 +75,18 @@ const updateActiveIcons = (activeSection) => {
     });
 };
 
-// Ajout des événements de survol pour chaque icône
+// Survol sur ordinateur et clic sur les ecrans tactiles.
 document.querySelectorAll("#icon-menu img").forEach(icon => {
-    icon.addEventListener("mouseover", () => {
+    const selectSection = () => {
         const section = icon.dataset.section;
-        if (section !== activeSection) {
-            activeSection = section;
-            updateActiveIcons(activeSection);
-            loadContent(activeSection); // Charge dans #content2
-        }
-    });
+        if (section === activeSection) return;
+        activeSection = section;
+        updateActiveIcons(activeSection);
+        loadContent(activeSection);
+    };
+
+    icon.addEventListener("mouseover", selectSection);
+    icon.addEventListener("click", selectSection);
 });
 
 // Chargement initial
