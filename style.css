@@ -204,7 +204,7 @@ footer {
     align-items: center;
     justify-content: center;  
     gap: 1rem; 
-    margin-top: 30px;
+    margin-top: 15px;
     margin-bottom: 15px;
 }
   
@@ -586,10 +586,6 @@ footer {
 
 /* Pour tablettes et petits écrans d'ordinateur (max-width: 1200px) */
 @media screen {
-    .lined-title:has(+ .project-grid) {
-        margin-top: 25px;
-    }
-
     .lined-title + .project-grid {
         padding-top: 3px;
     }
@@ -638,7 +634,7 @@ footer {
     }
 
     #content > p:has(> strong) {
-        line-height: 1.7;
+        line-height: 1.85;
     }
 
     #content .logo-skills + p {
@@ -689,7 +685,8 @@ footer {
 
     .project-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        margin-bottom: 22px;
+        margin-bottom: 17px;
+        row-gap: 15px;
     }
 
     .lined-title {
@@ -1027,6 +1024,7 @@ footer {
     .project-grid {
         gap: 25px;
         padding-top: 20px;
+        row-gap: 15px;
     }
 
     .lined-title + .project-grid {
@@ -1064,6 +1062,36 @@ footer {
 }
 
 @media screen and (min-width: 1401px) and (hover: hover) {
+    #content .text-skills {
+        font-size: 0.84rem;
+    }
+
+    #content:has(.logo-skills) p {
+        line-height: 1.6;
+    }
+
+    #content .ligne-tableau-love {
+        grid-template-columns: 1.75rem minmax(0, 1fr);
+        gap: 0.5rem;
+        min-height: 2.25rem;
+    }
+
+    #content .ligne-tableau-love img {
+        width: 1.75rem;
+        max-width: 1.75rem;
+        height: 1.75rem;
+        max-height: 1.75rem;
+    }
+
+    #content .ligne-tableau-love p {
+        font-size: 1rem;
+    }
+
+    #icon-menu {
+        align-self: stretch;
+        justify-content: space-between;
+    }
+
     .project-grid,
     .lined-title {
         width: calc(100% - 40px);
@@ -1072,6 +1100,7 @@ footer {
 
     .project-grid {
         gap: 25px;
+        row-gap: 15px;
     }
 
     .lined-title {
@@ -1094,10 +1123,10 @@ footer {
     }
 
     #content .logo-skills img {
-        width: 26px;
-        max-width: 26px;
-        height: 26px;
-        max-height: 26px;
+        width: 30px;
+        max-width: 30px;
+        height: 30px;
+        max-height: 30px;
         object-fit: contain;
     }
 
@@ -1114,45 +1143,32 @@ footer {
     }
 }
 
-/* Increase available space and readability on large desktop screens. */
-@media screen and (width: 1920px) and (max-height: 1080px) and (hover: hover) and (pointer: fine) {
+/* Keep the validated Full HD scale stable at every desktop width. */
+@media screen and (min-width: 1401px) and (hover: hover) and (pointer: fine) {
     body {
         zoom: 0.855;
         min-height: calc(100vh / 0.855);
     }
-}
 
-@media screen and (min-width: 1920px) and (hover: hover) and (pointer: fine) {
     :root {
+        font-size: 16px;
         --portfolio-width: 1120px;
         --portfolio-panel-width: 520px;
         --portfolio-menu-icon: 72px;
     }
 }
 
-@media screen and (min-width: 2560px) and (hover: hover) and (pointer: fine) {
-    :root {
-        font-size: 17px;
-        --portfolio-width: 1320px;
-        --portfolio-panel-width: 600px;
-        --portfolio-menu-icon: 76px;
+/* Large viewport presets also apply in responsive preview tools. */
+@media screen and (min-width: 1921px) and (hover: hover) and (pointer: fine) {
+    body {
+        zoom: 1.5675;
+        min-height: calc(100vh / 1.5675);
     }
 }
 
 @media screen and (min-width: 3200px) and (hover: hover) and (pointer: fine) {
-    :root {
-        font-size: 18px;
-        --portfolio-width: 1480px;
-        --portfolio-panel-width: 670px;
-        --portfolio-menu-icon: 80px;
-    }
-}
-
-@media screen and (min-width: 3840px) and (hover: hover) and (pointer: fine) {
-    :root {
-        font-size: 20px;
-        --portfolio-width: 1600px;
-        --portfolio-panel-width: 730px;
-        --portfolio-menu-icon: 88px;
+    body {
+        zoom: 1.7325;
+        min-height: calc(100vh / 1.7325);
     }
 }
