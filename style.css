@@ -586,6 +586,11 @@ footer {
 
 /* Pour tablettes et petits écrans d'ordinateur (max-width: 1200px) */
 @media screen {
+    body {
+        zoom: 0.855;
+        min-height: calc(100vh / 0.855);
+    }
+
     #content .division-tableau-love {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1069,35 +1074,35 @@ footer {
 /* Scale the whole layout on large screens, including text and icons. */
 @media screen and (min-width: 1600px) {
     body {
-        zoom: 1.15;
-        min-height: calc(100vh / 1.15);
+        zoom: 0.98325;
+        min-height: calc(100vh / 0.98325);
     }
 }
 
 @media screen and (min-width: 1920px) {
     body {
-        zoom: 1.25;
-        min-height: calc(100vh / 1.25);
+        zoom: 1.06875;
+        min-height: calc(100vh / 1.06875);
     }
 }
 
 @media screen and (min-width: 2560px) {
     body {
-        zoom: 1.6;
-        min-height: calc(100vh / 1.6);
+        zoom: 1.368;
+        min-height: calc(100vh / 1.368);
     }
 }
 
 @media screen and (min-width: 3200px) {
     body {
-        zoom: 2;
-        min-height: calc(100vh / 2);
+        zoom: 1.71;
+        min-height: calc(100vh / 1.71);
     }
 }
 
 @media screen and (min-width: 3840px) {
     body {
-        zoom: 2.4;
-        min-height: calc(100vh / 2.4);
+        zoom: 2.052;
+        min-height: calc(100vh / 2.052);
     }
 }
