@@ -1120,7 +1120,8 @@ footer {
 
     .project-grid {
         gap: 25px;
-        row-gap: 30px;
+        row-gap: 25
+        px;
     }
 
     .project-container,

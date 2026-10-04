@@ -1,40 +1,55 @@
 // Section par défaut au démarrage
 let activeSection = "age-about";
 
-// Fonction pour charger dynamiquement le contenu depuis un fichier HTML
-const loadContent = (section) => {
-    const contentElement = document.querySelector("#content2"); // Cibler content2
+// Only the latest category may update the panel or its transition.
+let contentRequest = 0;
+let contentController;
+let contentSwapTimer;
+let contentRevealTimer;
 
-    // Animation : on réinitialise avant le changement de contenu
+const loadContent = async (section) => {
+    const contentElement = document.querySelector("#content2");
+    if (!contentElement) return;
+
+    const request = ++contentRequest;
+    contentController?.abort();
+    clearTimeout(contentSwapTimer);
+    clearTimeout(contentRevealTimer);
+    const controller = new AbortController();
+    contentController = controller;
+
     contentElement.style.opacity = 0;
     contentElement.style.transform = "translateX(-15px)";
 
-    // Charger le contenu HTML depuis le dossier
-    fetch(`components/age/${section}.html`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Échec du chargement du contenu');
-            }
-            return response.text();
-        })
-        .then(htmlContent => {
-            // Appliquer un délai pour la transition
-            setTimeout(() => {
-                contentElement.innerHTML = htmlContent;
+    const revealContent = () => {
+        if (request !== contentRequest) return;
+        contentElement.style.transition = "opacity 1s ease, transform 1s ease";
+        contentElement.style.opacity = 1;
+        contentElement.style.transform = "translateX(0)";
+    };
 
-                // Redémarrer la transition d’apparition
-                contentElement.style.transition = "none";
-                setTimeout(() => {
-                    contentElement.style.transition = "opacity 1s ease, transform 1s ease";
-                    contentElement.style.opacity = 1;
-                    contentElement.style.transform = "translateX(0)";
-                }, 50);
-            }, 300);
-        })
-        .catch(error => {
-            console.error("Erreur lors du chargement du contenu :", error);
-            contentElement.innerHTML = "<p>Échec du chargement du contenu. Veuillez réessayer plus tard.</p>";
+    try {
+        const response = await fetch(`components/age/${section}.html`, {
+            signal: controller.signal
         });
+        if (!response.ok) throw new Error("Failed to load content");
+        const htmlContent = await response.text();
+        if (request !== contentRequest) return;
+
+        contentSwapTimer = setTimeout(() => {
+            if (request !== contentRequest) return;
+            contentElement.innerHTML = htmlContent;
+            contentElement.style.transition = "none";
+            contentRevealTimer = setTimeout(revealContent, 50);
+        }, 300);
+    } catch (error) {
+        if (request !== contentRequest || error.name === "AbortError") return;
+        console.error("Error loading content:", error);
+        contentElement.innerHTML = "<p>Échec du chargement du contenu. Veuillez réessayer plus tard.</p>";
+        revealContent();
+    } finally {
+        if (contentController === controller) contentController = null;
+    }
 };
 
 // Fonction pour mettre à jour l'apparence des icônes
