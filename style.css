@@ -1102,6 +1102,10 @@ footer {
 }
 
 @media screen and (min-width: 1401px) and (hover: hover) {
+    #content .logo-skills + p::before {
+        display: none;
+    }
+
     #content .text-skills {
         font-size: 0.84rem;
     }
