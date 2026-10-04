@@ -4,7 +4,7 @@ let activeSection = "home-aboutme";
 // Home image associated with each interactive category.
 const profileImages = {
     "home-aboutme": { src: "/assets/identity/profile.png", alt: "Antoine de Seguins — About me" },
-    "home-experience": { src: "/assets/identity/profile2.png ", alt: "Antoine de Seguins — My Experience" },
+    "home-experience": { src: "/assets/identity/profile2.png", alt: "Antoine de Seguins — My Experience" },
     "home-skills": { src: "/assets/identity/profile3.png", alt: "Antoine de Seguins — My Skills" },
     "home-love": { src: "/assets/identity/profile4.png", alt: "Antoine de Seguins — What I Love" }
 };
