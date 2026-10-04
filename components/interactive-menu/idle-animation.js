@@ -15,7 +15,7 @@
     const scheduleReminder = () => {
         window.clearTimeout(idleTimer);
         if (document.hidden || reducedMotion.matches) return;
-        idleTimer = window.setTimeout(replayReminder, 10000);
+        idleTimer = window.setTimeout(replayReminder, 5000);
     };
 
     const replayReminder = () => {
@@ -28,8 +28,8 @@
                 { transform: "scale(0.9)", filter: "brightness(1.3)" },
                 { transform: "scale(1)", filter: "brightness(1)" }
             ], {
-                duration: 1000,
-                delay: 1000 + index * 500,
+                duration: 1200,
+                delay: index * 600,
                 easing: "ease-in-out"
             });
 
@@ -37,7 +37,8 @@
             animation.onfinish = () => reminders.delete(animation);
         });
 
-        scheduleReminder();
+        const sequenceDuration = Math.max(0, icons.length - 1) * 600 + 1200;
+        idleTimer = window.setTimeout(scheduleReminder, sequenceDuration);
     };
 
     const resetIdleTimer = () => {
@@ -53,5 +54,13 @@
 
     document.addEventListener("visibilitychange", resetIdleTimer);
     reducedMotion.addEventListener("change", resetIdleTimer);
-    scheduleReminder();
+    const initialAnimations = icons.flatMap(icon => icon.getAnimations());
+    if (initialAnimations.length) {
+        Promise.allSettled(initialAnimations.map(animation => animation.finished))
+            .then(() => {
+                if (idleTimer === undefined) scheduleReminder();
+            });
+    } else {
+        scheduleReminder();
+    }
 })();

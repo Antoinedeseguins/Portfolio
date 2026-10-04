@@ -337,6 +337,10 @@ footer {
     border: 0.2rem solid var(--deep-blue); 
 }
 
+#icon-menu img.active-icon {
+    box-shadow: 0 0 8px 1px rgba(241, 196, 15, 0.35);
+}
+
 #content-list {
     display: flex;
     flex-direction: column;
@@ -570,24 +574,24 @@ footer {
 
 /* Appliquer l'animation à chaque bouton avec un délai différent */
 #icon-menu img:nth-child(1) {
-    animation: menuButtonAnimation 1s ease-in-out 1s 1;
+    animation: menuButtonAnimation 1.2s ease-in-out 1s 1;
 }
 
 #icon-menu img:nth-child(2) {
-    animation: menuButtonAnimation 1s ease-in-out 1.5s 1;
+    animation: menuButtonAnimation 1.2s ease-in-out 1.6s 1;
 }
 
 #icon-menu img:nth-child(3) {
-    animation: menuButtonAnimation 1s ease-in-out 2s 1;
+    animation: menuButtonAnimation 1.2s ease-in-out 2.2s 1;
 }
 
 #icon-menu img:nth-child(4) {
-    animation: menuButtonAnimation 1s ease-in-out 2.5s 1;
+    animation: menuButtonAnimation 1.2s ease-in-out 2.8s 1;
 }
 
 /* Si vous avez plus de 4 boutons, ajoutez les sélecteurs correspondants */
 #icon-menu img:nth-child(5) {
-    animation: menuButtonAnimation 1s ease-in-out 3.5s 1;
+    animation: menuButtonAnimation 1.2s ease-in-out 4s 1;
 }
 
 /* Désactiver l'animation si l'utilisateur préfère réduire les animations */
