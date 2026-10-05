@@ -385,6 +385,10 @@ footer {
     line-height: 1.5;
 }
 
+#content2 .spaceage-tools-text {
+    font-size: 0.97rem;
+}
+
 #content2 {
     width: 497.78px;
     height: 197px;
@@ -662,7 +666,7 @@ footer {
     }
 
     #content > p:has(> strong) {
-        line-height: 1.85;
+        line-height: 1.65
     }
 
     #content .logo-skills + p {
