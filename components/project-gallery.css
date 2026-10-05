@@ -11,6 +11,7 @@
     margin: 0;
     padding: 60px 64px;
     box-sizing: border-box;
+    overflow: hidden;
     border: 0;
     background: url("/assets/identity/bg.jpg") center / cover no-repeat;
     color: white;
@@ -56,6 +57,10 @@
 }
 @media screen and (max-width: 600px) {
     .project-viewer { padding: 64px 10px 76px; }
+    .project-viewer-close span {
+        display: inline-block;
+        transform: translateY(-2px);
+    }
     .project-viewer .project-viewer-image {
         width: min(100%, calc((100dvh - 140px) * var(--capture-ratio, 1.777778)));
     }

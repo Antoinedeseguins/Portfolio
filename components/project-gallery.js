@@ -9,7 +9,7 @@
     dialog.className = 'project-viewer';
     dialog.setAttribute('aria-label', 'Project screenshots');
     dialog.innerHTML = `
-        <button class="project-viewer-close" type="button" aria-label="Close viewer" autofocus>&times;</button>
+        <button class="project-viewer-close" type="button" aria-label="Close viewer" autofocus><span aria-hidden="true">&times;</span></button>
         <button class="project-viewer-prev" type="button" aria-label="Previous image">&#10094;</button>
         <img class="project-viewer-image" alt="">
         <button class="project-viewer-next" type="button" aria-label="Next image">&#10095;</button>
@@ -27,6 +27,7 @@
     let index = 0;
     let trigger;
     let previousOverflow;
+    let previousBodyOverflow;
 
     const show = position => {
         index = (position + images.length) % images.length;
@@ -40,7 +41,9 @@
         trigger = img;
         show(images.findIndex(image => image.src === img.src));
         previousOverflow = document.documentElement.style.overflow;
+        previousBodyOverflow = document.body.style.overflow;
         document.documentElement.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden';
         dialog.showModal();
     };
 
@@ -75,6 +78,7 @@
     });
     dialog.addEventListener('close', () => {
         document.documentElement.style.overflow = previousOverflow;
+        document.body.style.overflow = previousBodyOverflow;
         trigger?.focus({ preventScroll: true });
     });
 })();
