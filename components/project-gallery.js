@@ -9,7 +9,7 @@
     dialog.className = 'project-viewer';
     dialog.setAttribute('aria-label', 'Project screenshots');
     dialog.innerHTML = `
-        <button class="project-viewer-close" type="button" aria-label="Close viewer" autofocus><span aria-hidden="true">&times;</span></button>
+        <button class="project-viewer-close" type="button" aria-label="Close viewer" autofocus><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M6 6 L18 18 M18 6 L6 18" /></svg></button>
         <button class="project-viewer-prev" type="button" aria-label="Previous image">&#10094;</button>
         <img class="project-viewer-image" alt="">
         <button class="project-viewer-next" type="button" aria-label="Next image">&#10095;</button>

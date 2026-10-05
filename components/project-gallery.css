@@ -41,7 +41,24 @@
 }
 .project-viewer button:hover,
 .project-viewer button:focus-visible { color: #f1c40f; border-color: #f1c40f; }
-.project-viewer-close { top: 12px; right: 12px; }
+.project-viewer .project-viewer-close {
+    top: 12px;
+    right: 12px;
+    display: grid;
+    place-items: center;
+    box-sizing: border-box;
+    appearance: none;
+}
+.project-viewer-close svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    pointer-events: none;
+}
 .project-viewer-prev { top: calc(50% - 22px); left: 10px; }
 .project-viewer-next { top: calc(50% - 22px); right: 10px; }
 .project-viewer .project-viewer-count {
@@ -57,10 +74,6 @@
 }
 @media screen and (max-width: 600px) {
     .project-viewer { padding: 64px 10px 76px; }
-    .project-viewer-close span {
-        display: inline-block;
-        transform: translateY(-2px);
-    }
     .project-viewer .project-viewer-image {
         width: min(100%, calc((100dvh - 140px) * var(--capture-ratio, 1.777778)));
     }
