@@ -944,6 +944,28 @@ footer {
         object-fit: contain;
     }
 
+    #content2 .logo-tools {
+        width: 100%;
+        justify-content: center;
+    }
+
+    #content:has(.logo-skills) p {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: left;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+    }
+
+    #content p + .logo-skills {
+        margin-top: 6px;
+    }
+
+    #content .logo-skills + p {
+        margin-top: 12px;
+        padding-top: 9px;
+    }
+
     .bordered-container {
         padding: 20px 0;
     }
@@ -1118,10 +1140,12 @@ footer {
 @media screen and (min-width: 1401px) and (hover: hover) {
     #content .logo-skills + p {
         border-top: 0;
+        margin-top: 3px;
+        padding-top: 2px;
     }
 
     #content .logo-skills + p::before {
-        display: none;
+        display: block;
     }
 
     #content .text-skills {
