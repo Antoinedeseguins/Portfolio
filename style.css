@@ -135,7 +135,8 @@ nav a p em.current-page {
 /* Styles des logos */
 header .logo-link {
     width: 50px;
-    height: auto;
+    height: 50px;
+    object-fit: contain;
     display: block;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -152,6 +153,8 @@ footer .logo-link {
 }
 
 header .logo {
+    position: relative;
+    left: 1px;
     max-width: 150px;
     height: auto;
 }
@@ -173,6 +176,18 @@ nav div {
     display: flex;
     gap: 15px;
     flex-wrap: wrap; 
+}
+
+header nav > div {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    align-items: start;
+}
+
+header nav > div p {
+    margin: 0;
+    line-height: 1.2;
+    white-space: nowrap;
 }
 
 nav a {
@@ -1068,6 +1083,10 @@ footer {
         gap: 10px;
     }
 
+    header nav > div {
+        grid-template-columns: repeat(3, 52px);
+    }
+
     nav a {
         gap: 3px;
     }
@@ -1079,6 +1098,8 @@ footer {
 
     header .logo-link {
         width: 30px;
+        height: 30px;
+        object-fit: contain;
     }
 
     #interactive-menu {
@@ -1201,6 +1222,10 @@ footer {
     .project-grid {
         gap: 25px;
         row-gap: 30px;
+    }
+
+    .project-grid-home {
+        row-gap: 10px;
     }
 
     .project-container,
