@@ -757,6 +757,7 @@ footer {
         max-width: var(--portfolio-width);
         margin: 0 auto;
         padding: 30px 0;
+        padding-bottom: 29px;
     }
 
     #interactive-menu {
@@ -843,7 +844,7 @@ footer {
     .image-grid,
     .image-grid2 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        row-gap: 15px;
+        row-gap: 10px;
     }
 
     .image-grid {
@@ -991,6 +992,7 @@ footer {
 
     .bordered-container {
         padding: 20px 0;
+        padding-bottom: 20px;
     }
 }
 
@@ -1166,6 +1168,7 @@ footer {
 
     .bordered-container {
         padding: 15px 0;
+        padding-bottom: 14px;
     }
 
     #content .division-tableau-love {
@@ -1179,6 +1182,11 @@ footer {
 }
 
 @media screen and (min-width: 1101px) and (min-height: 700px) and (hover: hover) {
+    #interactive-menu:has(#content2) {
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+
     #content .logo-skills + p {
         border-top: 0;
         margin-top: 3px;
@@ -1233,7 +1241,16 @@ footer {
     .project-container,
     .image-grid2 {
         max-width: calc(var(--portfolio-panel-width) * 2 + var(--portfolio-menu-icon) + 30px);
-        column-gap: 15px;
+        column-gap: 11px;
+    }
+
+    .project-container {
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+
+    .project-container:has(iframe) > .image-grid {
+        row-gap: 8px;
     }
 
     .iframebot {
