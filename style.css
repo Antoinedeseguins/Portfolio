@@ -860,7 +860,7 @@ footer {
         grid-template-columns: repeat(2, minmax(0, max-content));
         justify-content: center;
         column-gap: clamp(20px, 5vw, 48px);
-        padding-left: 12px;
+        padding-left: 30px;
     }
 
     #content .timeline {
@@ -932,7 +932,7 @@ footer {
 
     .logo-skills {
         width: 100%;
-        justify-content: center;
+        justify-content: flex-start;
         gap: 8px;
     }
 
