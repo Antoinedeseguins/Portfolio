@@ -32,22 +32,19 @@
 
     document.querySelectorAll(".flip-card").forEach(card => {
         const link = card.querySelector("a");
-        const inner = card.querySelector(".flip-card-inner");
         const back = card.querySelector(".flip-card-back img");
-        if (!link || !inner || !back) return;
+        if (!link || !back) return;
 
         const originalSrc = back.getAttribute("src");
         const originalUrl = back.src;
         let timer;
+        let resetTimer;
         let overlay;
         let fade;
         let session = 0;
         let hovered = false;
 
-        const stop = () => {
-            hovered = false;
-            session++;
-            window.clearTimeout(timer);
+        const reset = () => {
             if (fade) fade.cancel();
             if (overlay) overlay.remove();
             fade = null;
@@ -55,7 +52,18 @@
             back.setAttribute("src", originalSrc);
         };
 
+        const stop = () => {
+            hovered = false;
+            session++;
+            window.clearTimeout(timer);
+            window.clearTimeout(resetTimer);
+            const duration = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 350;
+            resetTimer = window.setTimeout(reset, duration);
+        };
+
         card.addEventListener("mouseenter", () => {
+            window.clearTimeout(resetTimer);
+            reset();
             hovered = true;
             const currentSession = ++session;
             let nextIndex = 1;
@@ -99,19 +107,8 @@
                 timer = window.setTimeout(showNext, 2000 - fadeDuration);
             };
 
-            const style = window.getComputedStyle(inner);
-            const durations = style.transitionDuration.split(",").map(value =>
-                parseFloat(value) * (value.trim().endsWith("ms") ? 1 : 1000)
-            );
-            const delays = style.transitionDelay.split(",").map(value =>
-                parseFloat(value) * (value.trim().endsWith("ms") ? 1 : 1000)
-            );
-            const flipDuration = Math.max(...durations.map((duration, index) =>
-                duration + delays[index % delays.length]
-            ));
-
             window.clearTimeout(timer);
-            timer = window.setTimeout(showNext, flipDuration + 2000);
+            timer = window.setTimeout(showNext, 2000);
         });
 
         card.addEventListener("mouseleave", stop);
