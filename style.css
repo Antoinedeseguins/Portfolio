@@ -273,23 +273,19 @@ footer {
 .lined-title:has(+ .project-grid-home)::before,
 .lined-title:has(+ .project-grid-home)::after {
     border: 0;
-    height: 13px;
+    height: 2px;
     background-repeat: no-repeat;
-    background-size: 100% 2px, 2px 100%;
+    background-size: 100% 2px;
 }
 
 .lined-title:has(+ .project-grid-home)::before {
-    background-image:
-        linear-gradient(to right, var(--light-blue), var(--deep-blue)),
-        linear-gradient(var(--light-blue), var(--light-blue));
-    background-position: center, left center;
+    background-image: linear-gradient(to right, var(--light-blue), var(--deep-blue));
+    background-position: center;
 }
 
 .lined-title:has(+ .project-grid-home)::after {
-    background-image:
-        linear-gradient(to right, var(--light-blue), var(--deep-blue)),
-        linear-gradient(var(--deep-blue), var(--deep-blue));
-    background-position: center, right center;
+    background-image: linear-gradient(to right, var(--light-blue), var(--deep-blue));
+    background-position: center;
 }
 
 .flip-card p {
@@ -365,6 +361,13 @@ footer {
     font-weight: 700;
     line-height: 1.2;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.project-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    max-width: 100%;
 }
 
 .project-card-label {
@@ -528,6 +531,30 @@ footer {
         linear-gradient(225deg, transparent 0 80%, rgba(64, 190, 220, 0.02) 80%, rgba(64, 190, 220, 0.09) 100%),
         linear-gradient(45deg, transparent 0 88%, rgba(74, 144, 226, 0.045) 88%),
         linear-gradient(315deg, transparent 0 88%, rgba(74, 144, 226, 0.045) 88%);
+}
+
+/* Motif du menu : le coin superieur gauche reprend le coin inferieur droit a 180 degres. */
+#interactive-menu {
+    background-image:
+        linear-gradient(45deg, transparent calc(76% - 0.5px), rgba(64, 190, 220, 0.10) calc(76% - 0.5px) calc(76% + 0.5px), transparent calc(76% + 0.5px)),
+        linear-gradient(225deg, transparent calc(76% - 0.5px), rgba(64, 190, 220, 0.10) calc(76% - 0.5px) calc(76% + 0.5px), transparent calc(76% + 0.5px)),
+        linear-gradient(135deg, transparent calc(82% - 0.5px), rgba(74, 144, 226, 0.13) calc(82% - 0.5px) calc(82% + 0.5px), transparent calc(82% + 0.5px)),
+        linear-gradient(315deg, transparent calc(82% - 0.5px), rgba(74, 144, 226, 0.13) calc(82% - 0.5px) calc(82% + 0.5px), transparent calc(82% + 0.5px)),
+        radial-gradient(ellipse at 95% 85%, rgba(64, 190, 220, 0.12), transparent 35%),
+        radial-gradient(ellipse at 5% 15%, rgba(64, 190, 220, 0.12), transparent 35%),
+        linear-gradient(135deg, transparent calc(80% - 1px), rgba(74, 144, 226, 0.2) calc(80% - 1px) 80%, transparent 80%),
+        linear-gradient(315deg, transparent calc(80% - 1px), rgba(74, 144, 226, 0.2) calc(80% - 1px) 80%, transparent 80%),
+        linear-gradient(135deg, transparent 0 80%, rgba(74, 144, 226, 0.03) 80%, rgba(74, 144, 226, 0.12) 100%),
+        linear-gradient(315deg, transparent 0 80%, rgba(74, 144, 226, 0.03) 80%, rgba(74, 144, 226, 0.12) 100%),
+        linear-gradient(45deg, transparent 0 88%, rgba(74, 144, 226, 0.045) 88%),
+        linear-gradient(225deg, transparent 0 88%, rgba(74, 144, 226, 0.045) 88%);
+    background-position:
+        center -15px, center -45px,
+        center -15px, center -45px,
+        center -15px, center -45px,
+        center -15px, center -45px,
+        center -15px, center -45px,
+        center -15px, center -45px;
 }
 
 /* Footer : plusieurs bandes diagonales symétriques de tailles différentes. */
