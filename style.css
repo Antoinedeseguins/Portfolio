@@ -45,6 +45,15 @@ li, ul, td {
 }
 
 /* Styles des titres */
+.profile-first-name {
+    color: var(--white);
+}
+
+.profile-title {
+    transform: scaleY(0.95);
+    transform-origin: left center;
+}
+
 h1 {
     font-size: 2.5rem;
     color: var(--light-blue);
@@ -206,7 +215,7 @@ footer {
     display: flex;
     flex-direction: row;
     gap: 27px;
-    padding: 10px;
+    padding: 14px 10px;
     justify-content: center;
     margin-right: 10px;
     margin-left: 10px;
@@ -223,11 +232,21 @@ footer {
     margin-bottom: 15px;
 }
   
+.latest-work-highlight {
+    color: var(--light-blue);
+    font-weight: 700;
+}
+
 .lined-title::before,
 .lined-title::after {
     content: "";
     border-bottom: 2px solid;
     width: 385px;    
+}
+
+.lined-title:has(+ .project-grid-home)::before,
+.lined-title:has(+ .project-grid-home)::after {
+    border-bottom-width: 3px;
 }
 
 .flip-card p {
@@ -242,6 +261,18 @@ footer {
     margin: 0 auto;
     margin-bottom: 30px;
     padding-top: 40px;
+}
+
+.lined-title:has(+ .project-grid-home) {
+    margin-top: 25px;
+}
+
+.lined-title + .project-grid.project-grid-home {
+    padding-top: 15px;
+}
+
+.project-grid.project-grid-home {
+    row-gap: 29px;
 }
 
 .flip-card {
@@ -331,6 +362,43 @@ footer {
     gap: 10px;
 }
 
+/* Motif partagé par la bande du menu et le footer. */
+#interactive-menu,
+footer {
+    background-image:
+        linear-gradient(135deg, transparent 0 80%, rgba(255, 255, 255, 0.02) 80%),
+        linear-gradient(225deg, transparent 0 80%, rgba(255, 255, 255, 0.02) 80%),
+        linear-gradient(45deg, transparent 0 88%, rgba(74, 144, 226, 0.045) 88%),
+        linear-gradient(315deg, transparent 0 88%, rgba(74, 144, 226, 0.045) 88%);
+    background-size: 100% calc(100% + 60px);
+    background-position: center -15px;
+    background-repeat: no-repeat;
+}
+
+/* Fines lignes lumineuses sur les diagonales du menu. */
+#interactive-menu {
+    background-image:
+        linear-gradient(135deg, transparent calc(80% - 1px), rgba(74, 144, 226, 0.2) calc(80% - 1px) 80%, transparent 80%),
+        linear-gradient(225deg, transparent calc(80% - 1px), rgba(74, 144, 226, 0.2) calc(80% - 1px) 80%, transparent 80%),
+        linear-gradient(135deg, transparent 0 80%, rgba(255, 255, 255, 0.02) 80%),
+        linear-gradient(225deg, transparent 0 80%, rgba(255, 255, 255, 0.02) 80%),
+        linear-gradient(45deg, transparent 0 88%, rgba(74, 144, 226, 0.045) 88%),
+        linear-gradient(315deg, transparent 0 88%, rgba(74, 144, 226, 0.045) 88%);
+}
+
+/* Footer : plusieurs bandes diagonales symétriques de tailles différentes. */
+footer {
+    background-image:
+        linear-gradient(135deg, transparent 0 59%, rgba(74, 144, 226, 0.05) 59% 61%, transparent 61%),
+        linear-gradient(225deg, transparent 0 59%, rgba(74, 144, 226, 0.05) 59% 61%, transparent 61%),
+        linear-gradient(135deg, transparent 0 64%, rgba(255, 255, 255, 0.035) 64% 73%, transparent 73%),
+        linear-gradient(225deg, transparent 0 64%, rgba(255, 255, 255, 0.035) 64% 73%, transparent 73%),
+        linear-gradient(135deg, transparent 0 80%, rgba(255, 255, 255, 0.02) 80%),
+        linear-gradient(225deg, transparent 0 80%, rgba(255, 255, 255, 0.02) 80%),
+        linear-gradient(45deg, transparent 0 88%, rgba(74, 144, 226, 0.045) 88%),
+        linear-gradient(315deg, transparent 0 88%, rgba(74, 144, 226, 0.045) 88%);
+}
+
 #profile-picture {
     position: relative;
     width: 497.78px;
@@ -340,6 +408,12 @@ footer {
     align-items: center;
     justify-content: center;
 }
+
+#profile-picture.home-profile-picture {
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    overflow: visible;
+}
+
 
 #profile-picture img {
     width: 100%;
@@ -1052,6 +1126,16 @@ footer {
 }
 
 @media screen and (max-width: 576px) {
+    footer {
+        background-image:
+            linear-gradient(135deg, transparent 0 65%, rgba(255, 255, 255, 0.03) 65% 77%, transparent 77%),
+            linear-gradient(225deg, transparent 0 65%, rgba(255, 255, 255, 0.03) 65% 77%, transparent 77%),
+            linear-gradient(45deg, transparent 0 84%, rgba(74, 144, 226, 0.05) 84%),
+            linear-gradient(315deg, transparent 0 84%, rgba(74, 144, 226, 0.05) 84%);
+        background-size: 100% 100%;
+        background-position: center top;
+    }
+
     header nav p {
         font-size: 0.75rem;
     }
