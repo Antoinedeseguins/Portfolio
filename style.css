@@ -17,7 +17,7 @@
 /* Gestion des background */
 body {
   isolation: isolate;
-  background-image: url("/assets/identity/bg.jpg");
+  background-image: url("/assets/identity/bg.webp");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -32,7 +32,7 @@ body::before {
     position: fixed;
     inset: 0;
     z-index: -1;
-    background: url("/assets/identity/bg.jpg") center / cover no-repeat;
+    background: url("/assets/identity/bg.webp") center / cover no-repeat;
     filter: contrast(1.05);
     pointer-events: none;
 }
@@ -1166,16 +1166,10 @@ footer {
 }
 
 @media screen and (max-width: 576px) {
+    #interactive-menu,
+    .bandeau-portfolio,
     footer {
-        background-image:
-            radial-gradient(ellipse at 75% 100%, rgba(74, 144, 226, 0.16), transparent 60%),
-            radial-gradient(ellipse at 25% 0%, rgba(74, 144, 226, 0.16), transparent 60%),
-            linear-gradient(135deg, transparent 0 65%, rgba(74, 144, 226, 0.18) 65% calc(65% + 1px), rgba(255, 255, 255, 0.03) calc(65% + 1px) calc(77% - 1px), rgba(74, 144, 226, 0.18) calc(77% - 1px) 77%, transparent 77%),
-            linear-gradient(225deg, transparent 0 65%, rgba(74, 144, 226, 0.18) 65% calc(65% + 1px), rgba(255, 255, 255, 0.03) calc(65% + 1px) calc(77% - 1px), rgba(74, 144, 226, 0.18) calc(77% - 1px) 77%, transparent 77%),
-            linear-gradient(45deg, transparent 0 84%, rgba(74, 144, 226, 0.05) 84%),
-            linear-gradient(315deg, transparent 0 84%, rgba(74, 144, 226, 0.05) 84%);
-        background-size: 100% 100%;
-        background-position: center top;
+        background-image: none;
     }
 
     header nav p {

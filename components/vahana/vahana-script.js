@@ -66,7 +66,7 @@ const updateActiveIcons = (activeSection) => {
 
         // Met à jour l'icône selon qu'elle est active ou non
         if (section === activeSection) {
-            icon.src = originalSrc.replace(".png", "_active.png");
+            icon.src = originalSrc.replace(".webp", "_active.webp");
             icon.classList.add("active-icon");
         } else {
             icon.src = originalSrc;

@@ -3,9 +3,9 @@ let activeSection = "home-aboutme";
 
 // Home image associated with each interactive category.
 const profileImages = {
-    "home-aboutme": { src: "/assets/identity/profile.png", alt: "Antoine de Seguins — About me" },
-    "home-experience": { src: "/assets/identity/profile2.png", alt: "Antoine de Seguins — My Experience" },
-    "home-skills": { src: "/assets/identity/profile3.png", alt: "Antoine de Seguins — My Skills" },
+    "home-aboutme": { src: "/assets/identity/profile.webp", alt: "Antoine de Seguins — About me" },
+    "home-experience": { src: "/assets/identity/profile2.webp", alt: "Antoine de Seguins — My Experience" },
+    "home-skills": { src: "/assets/identity/profile3.webp", alt: "Antoine de Seguins — My Skills" },
     "home-love": { src: "/assets/identity/profile4.webp", alt: "Antoine de Seguins — What I Love" }
 };
 
@@ -136,7 +136,7 @@ const updateActiveIcons = (activeSection) => {
 
         // Met à jour l'icône selon qu'elle est active ou non
         if (section === activeSection) {
-            icon.src = originalSrc.replace(".png", "_active.png");
+            icon.src = originalSrc.replace(".webp", "_active.webp");
             icon.classList.add("active-icon");
         } else {
             icon.src = originalSrc;
