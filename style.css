@@ -17,14 +17,21 @@
 /* Gestion des background */
 body {
   isolation: isolate;
-  background-image: url("/assets/identity/bg.webp");
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   
+}
+
+/* Fond unique en miroir horizontal. */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: url("/assets/identity/bg.webp") center / cover no-repeat;
+    transform: scaleX(-1);
+    pointer-events: none;
 }
 
 main {
