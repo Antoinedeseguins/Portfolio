@@ -33,13 +33,21 @@ body::before {
     inset: 0;
     z-index: -1;
     background: url("/assets/identity/bg.webp") center / cover no-repeat;
-    filter: contrast(1.05);
+    filter: contrast(1.05) brightness(1.05);
     pointer-events: none;
+}
+
+main {
+    flex: 0 0 auto;
+}
+
+body > header,
+body > footer {
+    flex-shrink: 0;
 }
 
 footer {
     background-color: var(--deep-blue);
-    margin-top: auto;
 }
 
 /* Définition des polices */
@@ -61,6 +69,7 @@ li, ul, td {
 }
 
 .profile-title {
+    color: var(--white);
     transform: scaleY(0.95);
     transform-origin: left center;
 }
@@ -275,15 +284,15 @@ footer {
 }
 
 .lined-title:has(+ .project-grid-home) {
-    margin-top: 25px;
+    margin-top: 35px;
 }
 
 .lined-title + .project-grid.project-grid-home {
-    padding-top: 15px;
+    padding-top: 20px;
 }
 
 .project-grid.project-grid-home {
-    row-gap: 29px;
+    row-gap: 35px;
 }
 
 .flip-card {
@@ -328,6 +337,27 @@ footer {
 .flip-card img,
 .image-item img,
 .image-grid2 img,
+.concept-art {
+    position: relative;
+    min-width: 0;
+}
+
+.concept-art img {
+    display: block;
+}
+
+.concept-art figcaption {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 4px 8px;
+    background: rgba(23, 36, 58, 0.8);
+    color: var(--white);
+    font-family: "Inter", sans-serif;
+    font-size: 0.8rem;
+    pointer-events: none;
+}
+
 .image-grid3 img {
     object-fit: cover;
     border: 1px solid #1D2635;
@@ -1136,12 +1166,10 @@ footer {
 }
 
 @media screen and (min-width: 901px) {
-    .dough-gallery > div:first-child,
     .project-container > div:first-child:has(iframe[src*="youtube.com/embed/"]) {
         min-height: 0;
     }
 
-    .dough-gallery iframe,
     .project-container iframe[src*="youtube.com/embed/"] {
         height: 100%;
         aspect-ratio: auto;
