@@ -83,6 +83,14 @@ h2 {
     font-weight: 100;
 }
 
+.projects-page h1 {
+    font-size: 2.75rem;
+}
+
+.projects-page h2 {
+    font-size: 2.2rem;
+}
+
 h3 {
     font-size: 1.5em;
     color: var(--deep-blue);
@@ -956,7 +964,7 @@ footer {
     }
 
     #content > p:has(> strong) {
-        line-height: 1.65
+        line-height: 1.68
     }
 
     #content .logo-skills + p {
@@ -1146,8 +1154,8 @@ footer {
     }
 }
 
-@media screen and (max-width: 1100px),
-       screen and (max-height: 699px),
+@media screen and (max-width: 1060px),
+       screen and (max-height: 580px),
        screen and (hover: none) and (pointer: coarse) {
     #content .division-tableau-love {
         grid-template-columns: repeat(2, minmax(0, max-content));
@@ -1223,6 +1231,10 @@ footer {
         text-align: center;
     }
 
+    #content {
+        min-height: 0;
+    }
+
     #content,
     #content2 {
         padding: 0 0 10px;
@@ -1274,12 +1286,25 @@ footer {
     }
 }
 
-@media screen and (min-width: 577px) and (max-width: 1100px),
-       screen and (min-width: 577px) and (max-height: 699px) {
+@media screen and (min-width: 577px) and (max-width: 1060px),
+       screen and (min-width: 577px) and (max-height: 580px) {
+    #interactive-menu {
+        width: calc(100% - 40px);
+        max-width: var(--portfolio-width);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #profile-picture,
+    #content-list {
+        max-width: none;
+    }
+
     #icon-menu {
         display: flex;
         flex-direction: row;
         justify-content: center;
+        max-width: none;
     }
 
     #icon-menu img {
@@ -1404,6 +1429,14 @@ footer {
         font-size: clamp(1.4rem, 5vw, 2rem);
     }
 
+    .projects-page h1 {
+        font-size: clamp(1.76rem, 6.6vw, 2.42rem);
+    }
+
+    .projects-page h2 {
+        font-size: clamp(1.54rem, 5.5vw, 2.2rem);
+    }
+
     #content,
     #content2 {
         text-align: justify;
@@ -1463,7 +1496,7 @@ footer {
     }
 }
 
-@media screen and (min-width: 1101px) and (min-height: 700px) and (hover: hover) {
+@media screen and (min-width: 1061px) and (min-height: 581px) and (hover: hover) {
     #interactive-menu:has(.home-profile-picture) #profile-picture,
     #interactive-menu:has(.home-profile-picture) #content-list {
         max-width: calc(var(--portfolio-panel-width) + 20px);
@@ -1597,8 +1630,73 @@ footer {
     }
 }
 
+@media screen and (min-width: 530px) and (max-width: 1060px) {
+    #interactive-menu,
+    .project-grid-home,
+    .lined-title:has(+ .project-grid-home) {
+        width: calc(100% - 40px);
+        max-width: 740px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #profile-picture,
+    #icon-menu,
+    #content-list {
+        max-width: 700px;
+        align-self: center;
+    }
+
+    #content:has(.logo-skills) p {
+        text-align: center;
+    }
+
+    #content .logo-skills {
+        justify-content: center;
+    }
+
+    #content .timeline,
+    #content .timeline tbody {
+        display: block;
+        width: 100%;
+    }
+
+    #content .timeline tr {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: baseline;
+        gap: 12px;
+        padding: 6px 0;
+    }
+
+    #content .timeline tr + tr {
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    #content .timeline tr + tr td {
+        border-top: 0;
+    }
+
+    #content .timeline td {
+        display: block;
+        width: auto;
+        min-width: 0;
+        padding: 3px 0;
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    #content .timeline td:first-child {
+        width: auto;
+        flex: 0 0 auto;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
 /* Keep the validated Full HD scale stable at every desktop width. */
-@media screen and (min-width: 1101px) and (min-height: 700px) and (hover: hover) and (pointer: fine) {
+@media screen and (min-width: 1061px) and (min-height: 581px) and (hover: hover) and (pointer: fine) {
     body {
         zoom: 0.855;
         min-height: calc(100vh / 0.855);
@@ -1613,14 +1711,14 @@ footer {
 }
 
 /* Large viewport presets also apply in responsive preview tools. */
-@media screen and (min-width: 1921px) and (min-height: 700px) and (hover: hover) and (pointer: fine) {
+@media screen and (min-width: 1921px) and (min-height: 581px) and (hover: hover) and (pointer: fine) {
     body {
         zoom: 1.5675;
         min-height: calc(100vh / 1.5675);
     }
 }
 
-@media screen and (min-width: 3200px) and (min-height: 700px) and (hover: hover) and (pointer: fine) {
+@media screen and (min-width: 3200px) and (min-height: 581px) and (hover: hover) and (pointer: fine) {
     body {
         zoom: 1.7325;
         min-height: calc(100vh / 1.7325);
