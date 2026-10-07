@@ -129,14 +129,16 @@ h6 {
 .text-highlight2 {
     color: var(--yellow);
     font-weight: 600;
+      font-size: 1.01rem;
 }
 
 .text-skills {
     font-size: 0.88rem;
+    font-weight: 300;
 }
 
 #content .about-me-text {
-    font-size: 1.04rem;
+    font-size: 1.08rem;
 }
 
 /* Styles des liens */
@@ -310,6 +312,10 @@ footer {
     padding-top: 40px;
 }
 
+.project-grid-explore {
+    padding-top: 34px;
+}
+
 .lined-title:has(+ .project-grid-home) {
     margin-top: 35px;
     font-weight: 700;
@@ -337,6 +343,8 @@ footer {
 
 .project-grid .flip-card-inner {
     overflow: hidden;
+    border: 1px solid #1D2635;
+    box-shadow: 0 4px 10px rgba(23, 36, 58, 0.3);
 }
 
 .project-grid .flip-card-inner::before {
@@ -381,7 +389,7 @@ footer {
 .project-card-label {
     padding: 3px 8px;
     border-radius: 10px;
-    background: rgba(41, 90, 129, 0.85);
+    background: #2E4D78;
     font-size: 0.6rem;
     font-weight: 600;
     line-height: 1.1;
@@ -437,6 +445,11 @@ footer {
     height: 100%;
     object-fit: cover;
     border: 1px solid #1D2635;
+}
+
+.project-grid .flip-card-front img,
+.project-grid .flip-card-back img {
+    border: 0;
 }
 
 /* Assurer que toutes les images de projets ont le même style */
@@ -823,6 +836,11 @@ footer {
     width: 35px ;
 }
 
+.logo-skills img,
+.logo-tools img {
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.35));
+}
+
 
 /*TABLEAU EXPERIENCE*/
 .tableau-xp {
@@ -1097,6 +1115,11 @@ footer {
         max-width: 100%;
     }
 
+    .logo-skills,
+    .logo-tools {
+        gap: 8px;
+    }
+
     .division-tableau-love {
         flex-wrap: wrap;
         gap: 15px 25px;
@@ -1358,7 +1381,7 @@ footer {
     #content2 .logo-tools {
         width: 100%;
         flex-wrap: nowrap;
-        gap: clamp(2px, 0.8vw, 5px);
+        gap: clamp(3px, 1vw, 8px);
     }
 
     #content2 .logo-tools img {
@@ -1461,6 +1484,10 @@ footer {
         row-gap: 20px;
     }
 
+    .project-grid-explore {
+        padding-top: 14px;
+    }
+
     .lined-title + .project-grid {
         padding-top: 3px;
     }
@@ -1500,6 +1527,16 @@ footer {
     #interactive-menu:has(.home-profile-picture) #profile-picture,
     #interactive-menu:has(.home-profile-picture) #content-list {
         max-width: calc(var(--portfolio-panel-width) + 20px);
+    }
+
+    #interactive-menu:has(.home-profile-picture) #content-list {
+        align-self: stretch;
+    }
+
+    #interactive-menu:has(.home-profile-picture) #content {
+        flex: 1;
+        min-height: 0;
+        padding-bottom: 0;
     }
 
     #interactive-menu:has(#content2) {
@@ -1602,7 +1639,7 @@ footer {
 
     #content .logo-skills {
         padding-top: 3px;
-        gap: 5px;
+        gap: 8px;
     }
 
     #content .logo-skills:last-child {
@@ -1610,10 +1647,10 @@ footer {
     }
 
     #content .logo-skills img {
-        width: 33px;
-        max-width: 33px;
-        height: 33px;
-        max-height: 33px;
+        width: 35px;
+        max-width: 35px;
+        height: 35px;
+        max-height: 35px;
         object-fit: contain;
     }
 
