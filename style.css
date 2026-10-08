@@ -38,13 +38,8 @@ main {
     flex: 0 0 auto;
 }
 
-body > header,
-body > footer {
+body > header {
     flex-shrink: 0;
-}
-
-footer {
-    background-color: var(--deep-blue);
 }
 
 /* Définition des polices */
@@ -204,13 +199,6 @@ header .logo-link {
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-footer .logo-link {
-    width: 30px;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
 .logo-link:hover {
     transform: scale(1.2);
 }
@@ -255,6 +243,13 @@ header nav > div p {
     white-space: nowrap;
 }
 
+header nav > .header-links {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 80px;
+    margin-left: auto;
+}
+
 nav a {
     display: flex;
     flex-direction: column;
@@ -264,18 +259,6 @@ nav a {
 
 nav p {
     text-align: center;
-}
-
-/*Footer*/
-footer {
-    display: flex;
-    flex-direction: row;
-    gap: 27px;
-    padding: 14px 10px;
-    justify-content: center;
-    margin-right: 10px;
-    margin-left: 10px;
-    margin-bottom: 10px;
 }
 
 /* Grille des projets */
@@ -352,7 +335,7 @@ footer {
 }
 
 .project-grid.project-grid-home {
-    row-gap: 40px;
+    row-gap: 30px;
 }
 
 .flip-card {
@@ -561,10 +544,9 @@ footer {
     gap: 10px;
 }
 
-/* Motif partagé par la bande du menu et le footer. */
+/* Motif partagé par les bandeaux. */
 #interactive-menu,
-.bandeau-portfolio,
-footer {
+.bandeau-portfolio {
     background-image:
         linear-gradient(135deg, transparent 0 80%, rgba(255, 255, 255, 0.02) 80%),
         linear-gradient(225deg, transparent 0 80%, rgba(255, 255, 255, 0.02) 80%),
@@ -597,21 +579,23 @@ footer {
 #interactive-menu {
     position: relative;
     isolation: isolate;
+    background-color: #14263F;
+    box-shadow: inset 0 0 0 1px rgba(65, 155, 240, 0.12), 0 4px 16px rgba(12, 68, 140, 0.06);
     background-image:
-        linear-gradient(135deg, transparent 0 88%, rgba(74, 144, 226, 0.18) 88%, rgba(90, 180, 255, 0.22) 100%),
-        linear-gradient(315deg, transparent 0 88%, rgba(74, 144, 226, 0.18) 88%, rgba(90, 180, 255, 0.22) 100%),
-        linear-gradient(45deg, transparent calc(76% - 0.5px), rgba(64, 190, 220, 0.10) calc(76% - 0.5px) calc(76% + 0.5px), transparent calc(76% + 0.5px)),
-        linear-gradient(225deg, transparent calc(76% - 0.5px), rgba(64, 190, 220, 0.10) calc(76% - 0.5px) calc(76% + 0.5px), transparent calc(76% + 0.5px)),
-        linear-gradient(135deg, transparent calc(82% - 0.5px), rgba(74, 144, 226, 0.13) calc(82% - 0.5px) calc(82% + 0.5px), transparent calc(82% + 0.5px)),
-        linear-gradient(315deg, transparent calc(82% - 0.5px), rgba(74, 144, 226, 0.13) calc(82% - 0.5px) calc(82% + 0.5px), transparent calc(82% + 0.5px)),
-        radial-gradient(ellipse at 95% 85%, rgba(105, 195, 255, 0.24), rgba(35, 135, 230, 0.14) 15%, transparent 35%),
-        radial-gradient(ellipse at 5% 15%, rgba(105, 195, 255, 0.24), rgba(35, 135, 230, 0.14) 15%, transparent 35%),
-        linear-gradient(135deg, transparent calc(80% - 1px), rgba(74, 144, 226, 0.2) calc(80% - 1px) 80%, transparent 80%),
-        linear-gradient(315deg, transparent calc(80% - 1px), rgba(74, 144, 226, 0.2) calc(80% - 1px) 80%, transparent 80%),
-        linear-gradient(135deg, transparent 0 80%, rgba(74, 144, 226, 0.04) 80%, rgba(45, 155, 245, 0.17) 100%),
-        linear-gradient(315deg, transparent 0 80%, rgba(74, 144, 226, 0.04) 80%, rgba(45, 155, 245, 0.17) 100%),
-        linear-gradient(45deg, transparent 0 88%, rgba(74, 144, 226, 0.045) 88%),
-        linear-gradient(225deg, transparent 0 88%, rgba(74, 144, 226, 0.045) 88%);
+        linear-gradient(135deg, transparent 0 88%, rgba(58, 142, 240, 0.18) 88%, rgba(78, 179, 255, 0.22) 100%),
+        linear-gradient(315deg, transparent 0 88%, rgba(58, 142, 240, 0.18) 88%, rgba(78, 179, 255, 0.22) 100%),
+        linear-gradient(45deg, transparent calc(76% - 0.5px), rgba(50, 198, 232, 0.10) calc(76% - 0.5px) calc(76% + 0.5px), transparent calc(76% + 0.5px)),
+        linear-gradient(225deg, transparent calc(76% - 0.5px), rgba(50, 198, 232, 0.10) calc(76% - 0.5px) calc(76% + 0.5px), transparent calc(76% + 0.5px)),
+        linear-gradient(135deg, transparent calc(82% - 0.5px), rgba(58, 142, 240, 0.13) calc(82% - 0.5px) calc(82% + 0.5px), transparent calc(82% + 0.5px)),
+        linear-gradient(315deg, transparent calc(82% - 0.5px), rgba(58, 142, 240, 0.13) calc(82% - 0.5px) calc(82% + 0.5px), transparent calc(82% + 0.5px)),
+        radial-gradient(ellipse at 95% 85%, rgba(88, 193, 255, 0.25), rgba(28, 128, 242, 0.15) 15%, transparent 35%),
+        radial-gradient(ellipse at 5% 15%, rgba(88, 193, 255, 0.25), rgba(28, 128, 242, 0.15) 15%, transparent 35%),
+        linear-gradient(135deg, transparent calc(80% - 1px), rgba(58, 142, 240, 0.2) calc(80% - 1px) 80%, transparent 80%),
+        linear-gradient(315deg, transparent calc(80% - 1px), rgba(58, 142, 240, 0.2) calc(80% - 1px) 80%, transparent 80%),
+        linear-gradient(135deg, transparent 0 80%, rgba(58, 142, 240, 0.04) 80%, rgba(35, 152, 250, 0.17) 100%),
+        linear-gradient(315deg, transparent 0 80%, rgba(58, 142, 240, 0.04) 80%, rgba(35, 152, 250, 0.17) 100%),
+        linear-gradient(45deg, transparent 0 88%, rgba(58, 142, 240, 0.045) 88%),
+        linear-gradient(225deg, transparent 0 88%, rgba(58, 142, 240, 0.045) 88%);
     background-position:
         center -15px, center -45px,
         center -15px, center -45px,
@@ -648,23 +632,6 @@ footer {
     background: linear-gradient(225deg, rgba(8, 30, 65, 0.20) 0%, rgba(15, 65, 120, 0.08) 76%, rgba(8, 30, 65, 0.16) 76%, rgba(30, 110, 190, 0.08) 100%);
     -webkit-mask-image: linear-gradient(315deg, transparent 0 88%, #fff 88%);
     mask-image: linear-gradient(315deg, transparent 0 88%, #fff 88%);
-}
-
-/* Footer : plusieurs bandes diagonales symétriques de tailles différentes. */
-footer {
-    background-size: 100% calc(100% + 60px);
-    background-position: center -15px;
-    background-image:
-        radial-gradient(ellipse at 75% 100%, rgba(74, 144, 226, 0.16), transparent 60%),
-        radial-gradient(ellipse at 25% 0%, rgba(74, 144, 226, 0.16), transparent 60%),
-        linear-gradient(135deg, transparent 0 59%, rgba(74, 144, 226, 0.05) 59% 61%, transparent 61%),
-        linear-gradient(225deg, transparent 0 59%, rgba(74, 144, 226, 0.05) 59% 61%, transparent 61%),
-        linear-gradient(135deg, transparent 0 64%, rgba(74, 144, 226, 0.18) 64% calc(64% + 1px), rgba(255, 255, 255, 0.035) calc(64% + 1px) calc(73% - 1px), rgba(74, 144, 226, 0.18) calc(73% - 1px) 73%, transparent 73%),
-        linear-gradient(225deg, transparent 0 64%, rgba(74, 144, 226, 0.18) 64% calc(64% + 1px), rgba(255, 255, 255, 0.035) calc(64% + 1px) calc(73% - 1px), rgba(74, 144, 226, 0.18) calc(73% - 1px) 73%, transparent 73%),
-        linear-gradient(135deg, transparent 0 80%, rgba(255, 255, 255, 0.02) 80%),
-        linear-gradient(225deg, transparent 0 80%, rgba(255, 255, 255, 0.02) 80%),
-        linear-gradient(45deg, transparent 0 88%, rgba(74, 144, 226, 0.045) 88%),
-        linear-gradient(315deg, transparent 0 88%, rgba(74, 144, 226, 0.045) 88%);
 }
 
 #profile-picture {
@@ -872,6 +839,24 @@ footer {
         linear-gradient(45deg, transparent 0 78%, rgba(74, 144, 226, 0.045) 78%),
         linear-gradient(315deg, transparent 0 78%, rgba(74, 144, 226, 0.045) 78%);
     background-position: center -15px;
+}
+
+/* Bleu lumineux du bandeau Projects, dans la palette de l'accueil. */
+.projects-page .bandeau-portfolio {
+    background-color: #14263F;
+    background-image:
+        linear-gradient(45deg, transparent calc(18% - 0.5px), rgba(58, 142, 240, 0.13) calc(18% - 0.5px) calc(18% + 0.5px), transparent calc(18% + 0.5px)),
+        linear-gradient(135deg, transparent calc(24% - 0.5px), rgba(50, 198, 232, 0.10) calc(24% - 0.5px) calc(24% + 0.5px), transparent calc(24% + 0.5px)),
+        linear-gradient(45deg, transparent calc(76% - 0.5px), rgba(50, 198, 232, 0.10) calc(76% - 0.5px) calc(76% + 0.5px), transparent calc(76% + 0.5px)),
+        linear-gradient(135deg, transparent calc(82% - 0.5px), rgba(58, 142, 240, 0.13) calc(82% - 0.5px) calc(82% + 0.5px), transparent calc(82% + 0.5px)),
+        radial-gradient(ellipse at 5% 15%, rgba(88, 193, 255, 0.25), rgba(28, 128, 242, 0.15) 15%, transparent 45%),
+        radial-gradient(ellipse at 95% 85%, rgba(88, 193, 255, 0.25), rgba(28, 128, 242, 0.15) 15%, transparent 35%),
+        linear-gradient(135deg, transparent calc(68% - 1px), rgba(58, 142, 240, 0.2) calc(68% - 1px) 68%, transparent 68%),
+        linear-gradient(225deg, transparent calc(68% - 1px), rgba(58, 142, 240, 0.2) calc(68% - 1px) 68%, transparent 68%),
+        linear-gradient(135deg, transparent 0 68%, rgba(58, 142, 240, 0.04) 68%, rgba(35, 152, 250, 0.17) 100%),
+        linear-gradient(225deg, transparent 0 68%, rgba(58, 142, 240, 0.04) 68%, rgba(35, 152, 250, 0.17) 100%),
+        linear-gradient(45deg, transparent 0 78%, rgba(58, 142, 240, 0.045) 78%),
+        linear-gradient(315deg, transparent 0 78%, rgba(58, 142, 240, 0.045) 78%);
 }
 
 .bordered-container {
@@ -1538,8 +1523,7 @@ iframe[src*="calameo.com/"] {
 
 @media screen and (max-width: 576px) {
     #interactive-menu,
-    .bandeau-portfolio,
-    footer {
+    .bandeau-portfolio {
         background-image: none;
     }
 
@@ -1592,6 +1576,10 @@ iframe[src*="calameo.com/"] {
 
     header nav > div {
         grid-template-columns: repeat(2, 52px);
+    }
+
+    header nav > .header-links {
+        grid-auto-columns: minmax(52px, max-content);
     }
 
     nav a {
