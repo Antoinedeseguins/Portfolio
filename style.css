@@ -148,8 +148,8 @@ h6 {
 }
 
 .text-skills {
-    font-size: 0.88rem;
-    font-weight: 300;
+    font-size: 0.90rem;
+    font-weight: 325;
 }
 
 #content .about-me-text {
@@ -452,7 +452,7 @@ footer {
 
 .project-grid .flip-card:hover .flip-card-inner::after,
 .project-grid .flip-card:focus-within .flip-card-inner::after {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234A90E2' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14m-6-6 6 6-6 6'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F1C40F' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14m-6-6 6 6-6 6'/%3E%3C/svg%3E");
 }
 
 /* Essai : agrandissement des vignettes au survol. Retirer ce bloc pour annuler. */
@@ -995,12 +995,12 @@ iframe[src*="calameo.com/"] {
   
  /*TABLEAU SKILLS*/
 .logo-skills img {
-    max-width: 30px;
-    max-height: 30px;
+    max-width: 29px;
+    max-height: 29px;
  }
 
 .logo-skills {
-    padding-top: 7px;
+    padding-top: 4px;
     padding-bottom: 1px;
 }
   
@@ -1438,9 +1438,9 @@ iframe[src*="calameo.com/"] {
 
     .logo-skills img {
         display: block;
-        flex: 0 0 30px;
-        width: 30px;
-        height: 30px;
+        flex: 0 0 29px;
+        width: 29px;
+        height: 29px;
         object-fit: contain;
     }
 
@@ -1760,7 +1760,7 @@ iframe[src*="calameo.com/"] {
     }
 
     #content .text-skills {
-        font-size: 0.92rem;
+        font-size: 0.94rem;
     }
 
     #content:has(.logo-skills) p {
@@ -1856,19 +1856,19 @@ iframe[src*="calameo.com/"] {
     }
 
     #content .logo-skills {
-        padding-top: 6px;
+        padding-top: 3px;
         gap: 8px;
     }
 
     #content .logo-skills:last-child {
-        padding-top: 5px;
+        padding-top: 2px;
     }
 
     #content .logo-skills img {
-        width: 35px;
-        max-width: 35px;
-        height: 35px;
-        max-height: 35px;
+        width: 34px;
+        max-width: 34px;
+        height: 34px;
+        max-height: 34px;
         object-fit: contain;
     }
 
