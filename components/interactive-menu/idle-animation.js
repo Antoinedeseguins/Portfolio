@@ -6,6 +6,9 @@
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const reminders = new Set();
     let idleTimer;
+    let hasChangedSection = false;
+    const initialSection = menu.querySelector(".active-icon")?.dataset.section
+        ?? icons[0]?.dataset.section;
 
     const stopReminder = () => {
         reminders.forEach(animation => animation.cancel());
@@ -14,12 +17,12 @@
 
     const scheduleReminder = () => {
         window.clearTimeout(idleTimer);
-        if (document.hidden || reducedMotion.matches) return;
+        if (hasChangedSection || document.hidden || reducedMotion.matches) return;
         idleTimer = window.setTimeout(replayReminder, 5000);
     };
 
     const replayReminder = () => {
-        if (document.hidden || reducedMotion.matches) return;
+        if (hasChangedSection || document.hidden || reducedMotion.matches) return;
         stopReminder();
 
         icons.forEach((icon, index) => {
@@ -45,6 +48,20 @@
         stopReminder();
         scheduleReminder();
     };
+
+    // Category handlers run on the icons before these bubbling menu listeners.
+    const stopAfterSectionChange = () => {
+        const selectedSection = menu.querySelector(".active-icon")?.dataset.section;
+        if (hasChangedSection || !selectedSection || selectedSection === initialSection) return;
+
+        hasChangedSection = true;
+        window.clearTimeout(idleTimer);
+        stopReminder();
+        menu.classList.add("has-changed-section");
+    };
+
+    menu.addEventListener("mouseover", stopAfterSectionChange);
+    menu.addEventListener("click", stopAfterSectionChange);
 
     ["pointermove", "pointerdown", "keydown", "scroll", "wheel", "touchstart", "focusin"]
         .forEach(event => document.addEventListener(event, resetIdleTimer, {
