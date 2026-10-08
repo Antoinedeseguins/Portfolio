@@ -84,11 +84,26 @@ h2 {
 }
 
 .projects-page h1 {
-    font-size: 2.75rem;
+    font-size: 3rem;
+    color: var(--white);
+    letter-spacing: 0.05em;
+    -webkit-text-stroke: 0.4px currentColor;
+}
+
+.projects-title-accent {
+    color: var(--light-blue);
 }
 
 .projects-page h2 {
-    font-size: 2.2rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.2em;
+}
+
+.projects-title-divider {
+    width: 60px;
+    height: 2px;
+    margin: 16px auto;
+    background-color: var(--yellow);
 }
 
 h3 {
@@ -139,6 +154,13 @@ h6 {
 
 #content .about-me-text {
     font-size: 1.08rem;
+    font-weight: 300;
+}
+
+#content .about-me-text .text-highlight1,
+#content .about-me-text .text-highlight2,
+#content .about-me-text strong {
+    font-weight: 450;
 }
 
 /* Styles des liens */
@@ -156,7 +178,7 @@ header a:hover {
 }
 
 nav a p em.current-page {
-    text-decoration: underline;
+    text-decoration: none;
     font-style: normal;
     font-weight: 600;
 }
@@ -313,11 +335,12 @@ footer {
 }
 
 .project-grid-explore {
-    padding-top: 34px;
+    padding-top: 24px;
 }
 
 .lined-title:has(+ .project-grid-home) {
-    margin-top: 35px;
+    margin-top: 25px;
+    margin-bottom: 5px;
     font-weight: 700;
     -webkit-text-stroke: 0.25px currentColor;
 }
@@ -344,6 +367,7 @@ footer {
 .project-grid .flip-card-inner {
     overflow: hidden;
     border: 1px solid #1D2635;
+    border-radius: 5px;
     box-shadow: 0 4px 10px rgba(23, 36, 58, 0.3);
 }
 
@@ -372,6 +396,17 @@ footer {
     pointer-events: none;
 }
 
+.project-card-caption::before {
+    content: "";
+    position: absolute;
+    left: -14px;
+    bottom: -12px;
+    width: 5px;
+    height: calc(100% + 12px);
+    border-radius: 2px 2px 0 0;
+    background: linear-gradient(to bottom, var(--yellow), #D98A16 60%, #9C5510);
+}
+
 .project-card-name {
     font-size: clamp(0.85rem, 1.2vw, 1.05rem);
     font-weight: 700;
@@ -389,7 +424,7 @@ footer {
 .project-card-label {
     padding: 3px 8px;
     border-radius: 10px;
-    background: #2E4D78;
+    background: #185CA5;
     font-size: 0.6rem;
     font-weight: 600;
     line-height: 1.1;
@@ -405,10 +440,10 @@ footer {
     z-index: 2;
     width: 36px;
     height: 36px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     background-color: rgba(23, 36, 58, 0.5);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14m-6-6 6 6-6 6'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14m-6-6 6 6-6 6'/%3E%3C/svg%3E");
     background-position: center;
     background-size: 18px 18px;
     background-repeat: no-repeat;
@@ -417,7 +452,7 @@ footer {
 
 .project-grid .flip-card:hover .flip-card-inner::after,
 .project-grid .flip-card:focus-within .flip-card-inner::after {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234A90E2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14m-6-6 6 6-6 6'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234A90E2' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14m-6-6 6 6-6 6'/%3E%3C/svg%3E");
 }
 
 /* Essai : agrandissement des vignettes au survol. Retirer ce bloc pour annuler. */
@@ -557,17 +592,21 @@ footer {
 
 /* Motif du menu : le coin superieur gauche reprend le coin inferieur droit a 180 degres. */
 #interactive-menu {
+    position: relative;
+    isolation: isolate;
     background-image:
+        linear-gradient(135deg, transparent 0 88%, rgba(74, 144, 226, 0.18) 88%, rgba(90, 180, 255, 0.22) 100%),
+        linear-gradient(315deg, transparent 0 88%, rgba(74, 144, 226, 0.18) 88%, rgba(90, 180, 255, 0.22) 100%),
         linear-gradient(45deg, transparent calc(76% - 0.5px), rgba(64, 190, 220, 0.10) calc(76% - 0.5px) calc(76% + 0.5px), transparent calc(76% + 0.5px)),
         linear-gradient(225deg, transparent calc(76% - 0.5px), rgba(64, 190, 220, 0.10) calc(76% - 0.5px) calc(76% + 0.5px), transparent calc(76% + 0.5px)),
         linear-gradient(135deg, transparent calc(82% - 0.5px), rgba(74, 144, 226, 0.13) calc(82% - 0.5px) calc(82% + 0.5px), transparent calc(82% + 0.5px)),
         linear-gradient(315deg, transparent calc(82% - 0.5px), rgba(74, 144, 226, 0.13) calc(82% - 0.5px) calc(82% + 0.5px), transparent calc(82% + 0.5px)),
-        radial-gradient(ellipse at 95% 85%, rgba(64, 190, 220, 0.12), transparent 35%),
-        radial-gradient(ellipse at 5% 15%, rgba(64, 190, 220, 0.12), transparent 35%),
+        radial-gradient(ellipse at 95% 85%, rgba(105, 195, 255, 0.24), rgba(35, 135, 230, 0.14) 15%, transparent 35%),
+        radial-gradient(ellipse at 5% 15%, rgba(105, 195, 255, 0.24), rgba(35, 135, 230, 0.14) 15%, transparent 35%),
         linear-gradient(135deg, transparent calc(80% - 1px), rgba(74, 144, 226, 0.2) calc(80% - 1px) 80%, transparent 80%),
         linear-gradient(315deg, transparent calc(80% - 1px), rgba(74, 144, 226, 0.2) calc(80% - 1px) 80%, transparent 80%),
-        linear-gradient(135deg, transparent 0 80%, rgba(74, 144, 226, 0.03) 80%, rgba(74, 144, 226, 0.12) 100%),
-        linear-gradient(315deg, transparent 0 80%, rgba(74, 144, 226, 0.03) 80%, rgba(74, 144, 226, 0.12) 100%),
+        linear-gradient(135deg, transparent 0 80%, rgba(74, 144, 226, 0.04) 80%, rgba(45, 155, 245, 0.17) 100%),
+        linear-gradient(315deg, transparent 0 80%, rgba(74, 144, 226, 0.04) 80%, rgba(45, 155, 245, 0.17) 100%),
         linear-gradient(45deg, transparent 0 88%, rgba(74, 144, 226, 0.045) 88%),
         linear-gradient(225deg, transparent 0 88%, rgba(74, 144, 226, 0.045) 88%);
     background-position:
@@ -576,7 +615,36 @@ footer {
         center -15px, center -45px,
         center -15px, center -45px,
         center -15px, center -45px,
+        center -15px, center -45px,
         center -15px, center -45px;
+}
+
+#interactive-menu::before,
+#interactive-menu::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    pointer-events: none;
+    clip-path: inset(15px 0 45px);
+}
+
+#interactive-menu::before {
+    top: -15px;
+    bottom: -45px;
+    background: linear-gradient(45deg, rgba(8, 30, 65, 0.20) 0%, rgba(15, 65, 120, 0.08) 76%, rgba(8, 30, 65, 0.16) 76%, rgba(30, 110, 190, 0.08) 100%);
+    -webkit-mask-image: linear-gradient(135deg, transparent 0 88%, #fff 88%);
+    mask-image: linear-gradient(135deg, transparent 0 88%, #fff 88%);
+}
+
+#interactive-menu::after {
+    top: -45px;
+    bottom: -15px;
+    clip-path: inset(45px 0 15px);
+    background: linear-gradient(225deg, rgba(8, 30, 65, 0.20) 0%, rgba(15, 65, 120, 0.08) 76%, rgba(8, 30, 65, 0.16) 76%, rgba(30, 110, 190, 0.08) 100%);
+    -webkit-mask-image: linear-gradient(315deg, transparent 0 88%, #fff 88%);
+    mask-image: linear-gradient(315deg, transparent 0 88%, #fff 88%);
 }
 
 /* Footer : plusieurs bandes diagonales symétriques de tailles différentes. */
@@ -606,8 +674,57 @@ footer {
     justify-content: center;
 }
 
-#profile-picture.home-profile-picture {
+#interactive-menu #profile-picture {
     overflow: visible;
+    border: 1px solid transparent;
+    border-radius: 11px 0 10px 0;
+    background:
+        radial-gradient(ellipse 35% 65% at top right, var(--yellow) 0% 8%, transparent 85%),
+        radial-gradient(ellipse 35% 65% at bottom left, var(--yellow) 0% 8%, transparent 85%),
+        #315A85;
+    background-origin: border-box;
+    background-clip: border-box;
+    isolation: isolate;
+}
+
+#interactive-menu #profile-picture img {
+    position: relative;
+    z-index: 1;
+    border-radius: 10px 0 9px 0;
+}
+
+#interactive-menu #profile-picture:not(.home-profile-picture),
+#interactive-menu #profile-picture:not(.home-profile-picture) img {
+    border-radius: 0;
+}
+
+#interactive-menu #profile-picture::before,
+#interactive-menu #profile-picture::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    z-index: 0;
+    border-radius: 11px 0 11px 0;
+    background:
+        radial-gradient(ellipse 35% 65% at top right, var(--yellow) 0% 8%, transparent 85%),
+        radial-gradient(ellipse 35% 65% at bottom left, var(--yellow) 0% 8%, transparent 85%),
+        rgba(74, 144, 226, 0.55);
+    pointer-events: none;
+}
+
+#interactive-menu #profile-picture::before {
+    inset: -2px;
+    z-index: -1;
+    border-radius: 12px 0 12px 0;
+    background:
+        radial-gradient(ellipse 30% 60% at top right, var(--yellow), transparent 85%),
+        radial-gradient(ellipse 30% 60% at bottom left, var(--yellow), transparent 85%);
+    opacity: 0.9;
+    filter: drop-shadow(0 0 4px rgba(241, 196, 15, 0.7));
+}
+
+#interactive-menu #profile-picture::after {
+    display: none;
 }
 
 
@@ -639,6 +756,7 @@ footer {
 #icon-menu img {
     max-width: 70px;
     cursor: pointer;
+    border-radius: 5px;
     border: 0.2rem solid var(--deep-blue); 
 }
 
@@ -701,7 +819,7 @@ footer {
 
 #content h2 {
     padding-bottom: 5px;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 #content2 h6 {
@@ -1186,6 +1304,22 @@ footer {
 @media screen and (max-width: 1060px),
        screen and (max-height: 580px),
        screen and (hover: none) and (pointer: coarse) {
+    #interactive-menu #profile-picture {
+        border: 0;
+        background: none;
+        border-radius: 10px 0 10px 0;
+    }
+
+    #interactive-menu::before,
+    #interactive-menu::after {
+        display: none;
+    }
+
+    #interactive-menu #profile-picture::before,
+    #interactive-menu #profile-picture::after {
+        display: none;
+    }
+
     #content .division-tableau-love {
         grid-template-columns: repeat(2, minmax(0, max-content));
         justify-content: center;
@@ -1459,11 +1593,11 @@ footer {
     }
 
     .projects-page h1 {
-        font-size: clamp(1.76rem, 6.6vw, 2.42rem);
+        font-size: clamp(1.92rem, 7.2vw, 2.64rem);
     }
 
     .projects-page h2 {
-        font-size: clamp(1.54rem, 5.5vw, 2.2rem);
+        font-size: clamp(1rem, 3vw, 1.2rem);
     }
 
     #content,
@@ -1491,7 +1625,7 @@ footer {
     }
 
     .project-grid-explore {
-        padding-top: 14px;
+        padding-top: 8px;
     }
 
     .lined-title + .project-grid {
@@ -1530,24 +1664,66 @@ footer {
 }
 
 @media screen and (min-width: 1061px) and (min-height: 581px) and (hover: hover) {
-    #interactive-menu:has(.home-profile-picture) #profile-picture,
-    #interactive-menu:has(.home-profile-picture) #content-list {
+    #interactive-menu #profile-picture:not(.home-profile-picture) {
+        border-color: rgba(74, 144, 226, 0.6);
+        background: none;
+    }
+
+    #interactive-menu #profile-picture:not(.home-profile-picture)::before,
+    #interactive-menu #profile-picture:not(.home-profile-picture)::after {
+        display: none;
+    }
+
+    #interactive-menu {
+        gap: 25px;
+    }
+
+    .project-grid.project-grid-home,
+    .lined-title:has(+ .project-grid-home) {
+        width: calc(100% - 36px);
+        max-width: calc((var(--portfolio-panel-width) + 20px) * 2 + var(--portfolio-menu-icon) + 54px);
+    }
+
+    #content,
+    #content2 {
+        text-align: left;
+    }
+
+    #interactive-menu #profile-picture,
+    #interactive-menu #content-list {
         max-width: calc(var(--portfolio-panel-width) + 20px);
     }
 
-    #interactive-menu:has(.home-profile-picture) #content-list {
+    #interactive-menu #profile-picture {
+        display: block;
+        aspect-ratio: auto;
+        height: auto;
+        line-height: 0;
+    }
+
+    #interactive-menu #profile-picture img {
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+
+    #interactive-menu #profile-picture .profile-transition-layer {
+        height: 100%;
+    }
+
+    #interactive-menu #content-list {
         align-self: stretch;
     }
 
-    #interactive-menu:has(.home-profile-picture) #content {
+    #interactive-menu #content,
+    #interactive-menu #content2 {
         flex: 1;
         min-height: 0;
         padding-bottom: 0;
     }
 
     #interactive-menu:has(#content2) {
-        padding-top: 14px;
-        padding-bottom: 14px;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 
     #content .logo-skills + p {
@@ -1586,10 +1762,19 @@ footer {
         justify-content: space-between;
     }
 
+    #interactive-menu #icon-menu {
+        margin-top: -2px;
+        margin-bottom: -2px;
+    }
+
+    #icon-menu img {
+        border: 0;
+    }
+
     .project-grid,
     .lined-title {
         width: calc(100% - 40px);
-        max-width: calc((var(--portfolio-panel-width) + 20px) * 2 + var(--portfolio-menu-icon) + 30px);
+        max-width: calc((var(--portfolio-panel-width) + 20px) * 2 + var(--portfolio-menu-icon) + 50px);
     }
 
     .project-grid {
@@ -1598,12 +1783,12 @@ footer {
     }
 
     .project-grid-explore {
-        max-width: calc((var(--portfolio-panel-width) + 60px) * 2 + var(--portfolio-menu-icon) + 35px);
+        max-width: calc((var(--portfolio-panel-width) + 45px) * 2 + var(--portfolio-menu-icon) + 35px);
     }
 
     .project-container,
     .image-grid2 {
-        max-width: calc(var(--portfolio-panel-width) * 2 + var(--portfolio-menu-icon) + 30px);
+        max-width: calc((var(--portfolio-panel-width) + 20px) * 2 + var(--portfolio-menu-icon) + 50px);
         column-gap: 11px;
     }
 
@@ -1617,7 +1802,7 @@ footer {
     }
 
     .iframebot {
-        max-width: calc(var(--portfolio-panel-width) * 2 + var(--portfolio-menu-icon) + 30px);
+        max-width: calc((var(--portfolio-panel-width) + 20px) * 2 + var(--portfolio-menu-icon) + 50px);
     }
 
     .lined-title {
