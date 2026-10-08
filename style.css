@@ -154,13 +154,13 @@ h6 {
 
 #content .about-me-text {
     font-size: 1.08rem;
-    font-weight: 300;
+    font-weight: 350;
 }
 
 #content .about-me-text .text-highlight1,
 #content .about-me-text .text-highlight2,
 #content .about-me-text strong {
-    font-weight: 450;
+    font-weight: 500;
 }
 
 /* Styles des liens */
@@ -551,6 +551,7 @@ footer {
     margin-left: 10px;
     margin-right: 10px;
     background-color: var(--deep-blue);
+    border-radius: 5px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -693,6 +694,21 @@ footer {
     border-radius: 10px 0 9px 0;
 }
 
+.profile-image-frame {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px 0 9px 0;
+}
+
+#interactive-menu .home-profile-picture .profile-image-frame img {
+    border-radius: 0;
+    width: calc(100% + 1px);
+    max-width: none;
+}
+
 #interactive-menu #profile-picture:not(.home-profile-picture),
 #interactive-menu #profile-picture:not(.home-profile-picture) img {
     border-radius: 0;
@@ -715,7 +731,7 @@ footer {
 #interactive-menu #profile-picture::before {
     inset: -2px;
     z-index: -1;
-    border-radius: 12px 0 12px 0;
+    border-radius: 12px 0 11px 0;
     background:
         radial-gradient(ellipse 30% 60% at top right, var(--yellow), transparent 85%),
         radial-gradient(ellipse 30% 60% at bottom left, var(--yellow), transparent 85%);
@@ -795,7 +811,7 @@ footer {
 #content2 li,
 #content2 tr,
 #content2 ul {
-    line-height: 1.5;
+    line-height: 1.65;
 }
 
 #content2 .spaceage-tools-text {
@@ -879,6 +895,16 @@ footer {
 }
 
 /* Grille des images */
+.project-container img,
+.image-item img,
+.image-grid2 img,
+.image-grid3 img,
+.concept-art img,
+iframe[src*="youtube.com/embed/"],
+iframe[src*="calameo.com/"] {
+    border-radius: 5px;
+}
+
 .image-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -974,7 +1000,8 @@ footer {
  }
 
 .logo-skills {
-    padding-top: 4px;
+    padding-top: 7px;
+    padding-bottom: 1px;
 }
   
 /*TABLEAU LOVE*/
@@ -1829,12 +1856,12 @@ footer {
     }
 
     #content .logo-skills {
-        padding-top: 3px;
+        padding-top: 6px;
         gap: 8px;
     }
 
     #content .logo-skills:last-child {
-        padding-top: 2px;
+        padding-top: 5px;
     }
 
     #content .logo-skills img {
