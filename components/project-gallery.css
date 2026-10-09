@@ -13,7 +13,7 @@
     box-sizing: border-box;
     overflow: hidden;
     border: 0;
-    background: url("/assets/identity/bg.webp") center / cover no-repeat;
+    background: url("/assets/identity/bg.png") center / cover no-repeat;
     color: white;
 }
 .project-viewer[open] { display: flex; align-items: center; justify-content: center; }

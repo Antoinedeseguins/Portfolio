@@ -159,6 +159,43 @@ h6 {
 }
 
 /* Styles des liens */
+#content:has(.about-me-links) {
+    height: auto;
+    overflow: visible;
+}
+
+.about-me-links {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    width: 100%;
+    margin-top: 12px;
+    flex-shrink: 0;
+}
+
+.about-me-links a {
+    display: block;
+    border-radius: 5px;
+}
+
+.about-me-links img {
+    display: block;
+    width: 42px;
+    height: 42px;
+    border-radius: 5px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.about-me-links img:hover {
+    transform: scale(1.1);
+}
+
+.about-me-links a:focus-visible {
+    outline: 2px solid var(--light-blue);
+    outline-offset: 4px;
+}
+
 header a {
     font-family: "Space Grotesk", sans-serif;
     font-size: 1em;
@@ -168,7 +205,7 @@ header a {
 }
 
 header a:hover {
-    text-decoration: underline;
+    text-decoration: none;
     color: var(--light-blue);
 }
 
@@ -194,6 +231,7 @@ nav a p em.current-page {
 header .logo-link {
     width: 50px;
     height: 50px;
+    border-radius: 5px;
     object-fit: contain;
     display: block;
     transition: transform 0.3s ease, opacity 0.3s ease;
@@ -246,8 +284,12 @@ header nav > div p {
 header nav > .header-links {
     grid-template-columns: none;
     grid-auto-flow: column;
-    grid-auto-columns: 80px;
+    grid-auto-columns: 75px;
+    justify-items: center;
+    justify-content: end;
+    gap: 12px;
     margin-left: auto;
+    margin-right: 0;
 }
 
 nav a {
@@ -1580,6 +1622,7 @@ iframe[src*="calameo.com/"] {
 
     header nav > .header-links {
         grid-auto-columns: minmax(52px, max-content);
+        gap: 8px;
     }
 
     nav a {
