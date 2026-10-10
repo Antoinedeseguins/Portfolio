@@ -1,18 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Calque_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1000 1000">
-  <!-- Generator: Adobe Illustrator 30.8.2, SVG Export Plug-In . SVG Version: 2.1.4 Build 7)  -->
+<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
   <defs>
     <style>
-      .st0 {
+      .cls-1 {
+        stroke-width: 30px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke: #f1c40f;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        fill: #f1c40f;
+      }
+
+      .cls-2 {
+        stroke-width: 78px;
+      }
+
+      .cls-6 {
         fill: #1d2635;
       }
 
-      .st1 {
-        fill: #f1c40f;
+      .cls-4 {
+        stroke-width: 97px;
       }
     </style>
   </defs>
-  <rect class="st1" width="1000" height="1000"/>
-  <rect class="st0" x="65" y="65" width="870" height="870" rx="50" ry="50"/>
-  <path class="st1" d="M733.33,202.54h-466.67c-18.41,0-33.33,13.32-33.33,29.75v535.42c0,16.43,14.92,29.75,33.33,29.75h466.67c18.41,0,33.33-13.32,33.33-29.75V232.29c0-16.43-14.92-29.75-33.33-29.75ZM656.9,565.65l-133.33,118.98c-13,11.63-34.11,11.65-47.14.05-.02-.02-.04-.04-.06-.05l-133.33-118.98c-13.24-11.41-13.61-64.25-.82-76.07,12.79-11.82,33.89-12.14,47.13-.73.28.24.55.48.82.73l67.62,68.85v-221.39c0-16.43,23.8-30.39,42.21-30.39s41.66,13.32,41.66,29.75v221.39l68.11-68.21c13.24-11.41,34.34-11.09,47.13.73,12.48,11.53,12.48,63.81,0,75.34h0Z"/>
+  <rect class="cls-5" width="1000" height="1000"/>
+  <rect class="cls-6" x="72.91" y="65" width="870" height="870" rx="50" ry="50"/>
+  <g>
+    <line class="cls-4" x1="500.005" y1="252.714" x2="500.005" y2="506.595"/>
+    <polygon class="cls-3" points="354.905 422.824 499.995 619.044 645.095 422.824 354.905 422.824"/>
+  </g>
+  <g>
+    <line class="cls-2" x1="237.73" y1="721.46" x2="761.77" y2="721.46"/>
+    <line class="cls-1" x1="252.76" y1="596.58" x2="252.76" y2="748.36"/>
+    <line class="cls-1" x1="747.24" y1="596.58" x2="747.24" y2="748.36"/>
+  </g>
 </svg>

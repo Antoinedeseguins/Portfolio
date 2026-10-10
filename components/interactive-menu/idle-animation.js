@@ -35,9 +35,9 @@
 
         icons.forEach((icon, index) => {
             const animation = icon.animate([
-                { transform: "scale(1)", filter: "brightness(1)" },
+                { transform: "scale(1)", filter: "brightness(1.08)" },
                 { transform: "scale(0.9)", filter: "brightness(1.3)" },
-                { transform: "scale(1)", filter: "brightness(1)" }
+                { transform: "scale(1)", filter: "brightness(1.08)" }
             ], {
                 duration: 1200,
                 delay: index * 600,
