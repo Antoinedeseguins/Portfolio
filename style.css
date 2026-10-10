@@ -452,7 +452,7 @@ nav p {
 
 .project-grid .flip-card-inner {
     overflow: hidden;
-    border: 1px solid #1D2635;
+    border: 1px solid rgba(29, 38, 53, 0.75);
     border-radius: 5px;
     box-shadow: 0 4px 10px rgba(23, 36, 58, 0.3);
 }
@@ -1926,6 +1926,7 @@ iframe[src*="calameo.com/"] {
     #interactive-menu #icon-menu {
         margin-top: -2px;
         margin-bottom: -2px;
+        padding-block: 3px;
     }
 
     #icon-menu img {
@@ -2095,7 +2096,7 @@ iframe[src*="calameo.com/"] {
         font-size: 16px;
         --portfolio-width: 1120px;
         --portfolio-panel-width: 530px;
-        --portfolio-menu-icon: 72px;
+        --portfolio-menu-icon: 66px;
     }
 
     .lined-title::before,
