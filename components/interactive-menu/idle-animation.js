@@ -3,6 +3,14 @@
     if (!menu) return;
 
     const icons = [...menu.querySelectorAll("img")];
+    icons.forEach(icon => {
+        icon.addEventListener("keydown", event => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                icon.click();
+            }
+        });
+    });
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const reminders = new Set();
     let idleTimer;

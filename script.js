@@ -3,10 +3,10 @@ let activeSection = "home-aboutme";
 
 // Home image associated with each interactive category.
 const profileImages = {
-    "home-aboutme": { src: "/assets/identity/profile.webp", alt: "Antoine de Seguins — About me" },
-    "home-experience": { src: "/assets/identity/profile2.webp", alt: "Antoine de Seguins — My Experience" },
-    "home-skills": { src: "/assets/identity/profile3.webp", alt: "Antoine de Seguins — My Skills" },
-    "home-love": { src: "/assets/identity/profile4.webp", alt: "Antoine de Seguins — What I Love" }
+    "home-aboutme": { src: "/assets/identity/profile.webp", alt: "Portrait of Antoine de Seguins" },
+    "home-experience": { src: "/assets/identity/profile.webp", alt: "Portrait of Antoine de Seguins" },
+    "home-skills": { src: "/assets/identity/profile.webp", alt: "Portrait of Antoine de Seguins" },
+    "home-love": { src: "/assets/identity/profile.webp", alt: "Portrait of Antoine de Seguins" }
 };
 
 const profileLoads = new Map();
@@ -127,6 +127,7 @@ const loadContent = async (section) => {
 const updateActiveIcons = (activeSection) => {
     document.querySelectorAll("#icon-menu img").forEach(icon => {
         const section = icon.dataset.section;
+        icon.setAttribute("aria-pressed", String(section === activeSection));
 
         // Enregistrer le src original si pas déjà fait
         if (!icon.dataset.originalSrc) {

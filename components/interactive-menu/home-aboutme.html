@@ -1,29 +1,32 @@
 <h2>About Me</h2>
-    <p class="about-me-text"><strong>Hello!</strong> I'm <strong><em class="text-highlight1">Antoine de Seguins</em></strong>, a French <strong><em class="text-highlight2">Game Designer</em></strong> and 
-        <strong><em class="text-highlight2">QA Analyst</em></strong> passionate about <strong><em class="text-highlight1">video games</em></strong>. I love coming up with new ideas, designing fun experiences, 
-        and bringing my own creations to life. Outside of game development, I enjoy <strong><em class="text-highlight1">playing games</em></strong>, <strong><em class="text-highlight2">building things</em></strong>, 
-        and exploring all kinds of <strong><em class="text-highlight1">creative projects</em></strong>.</p> 
+    <p class="about-me-text">Hello! I'm <span class="text-highlight1">Antoine de Seguins</span>, a French <span class="text-highlight2">Game Designer</span> and
+        <span class="text-highlight2">QA Analyst</span> passionate about video games. I love coming up with new ideas, <span class="text-highlight1">designing fun experiences</span>,
+        and bringing my own creations to life. Beyond game development, I enjoy discovering new games, <span class="text-highlight2">building things</span>,
+        and exploring all kinds of creative projects. Blablablabla blablablablablab lablablabla blab lablabla </p>
 
     <div class="about-me-links">
         <a href="https://x.com/Adeseguins" target="_blank" rel="noopener noreferrer"
-            onfocus="this.querySelector('img').src='/assets/logo/Menu/logo-x-active.svg'"
-            onblur="this.querySelector('img').src='/assets/logo/Menu/logo-x.svg'">
-            <img src="/assets/logo/Menu/logo-x.svg" alt="X"
-                onmouseover="this.src='/assets/logo/Menu/logo-x-active.svg'"
-                onmouseout="this.src=this.parentElement.matches(':focus') ? '/assets/logo/Menu/logo-x-active.svg' : '/assets/logo/Menu/logo-x.svg'">
-        </a>
-        <a href="mailto:antoinedeseguins@gmail.com" target="_blank" rel="noopener noreferrer"
-            onfocus="this.querySelector('img').src='/assets/logo/Menu/logo-mail-active.svg'"
-            onblur="this.querySelector('img').src='/assets/logo/Menu/logo-mail.svg'">
-            <img src="/assets/logo/Menu/logo-mail.svg" alt="Email"
-                onmouseover="this.src='/assets/logo/Menu/logo-mail-active.svg'"
-                onmouseout="this.src=this.parentElement.matches(':focus') ? '/assets/logo/Menu/logo-mail-active.svg' : '/assets/logo/Menu/logo-mail.svg'">
+            onmouseenter="this.querySelector('img').src='/assets/logo/Menu/logo-x-active.svg'"
+            onmouseleave="this.querySelector('img').src='/assets/logo/Menu/logo-x.svg'">
+            <img src="/assets/logo/Menu/logo-x.svg" alt="X">
+            <span class="about-me-link-label">X</span>
         </a>
         <a href="https://www.linkedin.com/in/antoine-de-seguins/" target="_blank" rel="noopener noreferrer"
-            onfocus="this.querySelector('img').src='/assets/logo/Menu/logo-linkedin-active.svg'"
-            onblur="this.querySelector('img').src='/assets/logo/Menu/logo-linkedin.svg'">
-            <img src="/assets/logo/Menu/logo-linkedin.svg" alt="LinkedIn"
-                onmouseover="this.src='/assets/logo/Menu/logo-linkedin-active.svg'"
-                onmouseout="this.src=this.parentElement.matches(':focus') ? '/assets/logo/Menu/logo-linkedin-active.svg' : '/assets/logo/Menu/logo-linkedin.svg'">
+            onmouseenter="this.querySelector('img').src='/assets/logo/Menu/logo-linkedin-active.svg'"
+            onmouseleave="this.querySelector('img').src='/assets/logo/Menu/logo-linkedin.svg'">
+            <img src="/assets/logo/Menu/logo-linkedin.svg" alt="LinkedIn">
+            <span class="about-me-link-label">Linkedin</span>
         </a>
+        <a href="mailto:antoinedeseguins@gmail.com" target="_blank" rel="noopener noreferrer"
+            onmouseenter="this.querySelector('img').src='/assets/logo/Menu/logo-mail-active.svg'"
+            onmouseleave="this.querySelector('img').src='/assets/logo/Menu/logo-mail.svg'">
+            <img src="/assets/logo/Menu/logo-mail.svg" alt="Email">
+            <span class="about-me-link-label">Contact me</span>
+        </a>
+        <button type="button"
+            onmouseenter="this.querySelector('img').src='/assets/logo/Menu/logo-download-active.svg'"
+            onmouseleave="this.querySelector('img').src='/assets/logo/Menu/logo-download.svg'">
+            <img src="/assets/logo/Menu/logo-download.svg" alt="">
+            <span class="about-me-link-label">Download my resume</span>
+        </button>
     </div>

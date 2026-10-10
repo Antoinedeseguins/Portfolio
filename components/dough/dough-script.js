@@ -56,6 +56,7 @@ const loadContent = async (section) => {
 const updateActiveIcons = (activeSection) => {
     document.querySelectorAll("#icon-menu img").forEach(icon => {
         const section = icon.dataset.section;
+        icon.setAttribute("aria-pressed", String(section === activeSection));
 
         // Enregistrer le src original si pas déjà fait
         if (!icon.dataset.originalSrc) {

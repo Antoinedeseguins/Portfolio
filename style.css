@@ -14,6 +14,14 @@
     box-sizing: border-box;
 }
 
+img {
+    border-radius: 5px;
+}
+
+header .logo {
+    border-radius: 0;
+}
+
 /* Gestion des background */
 body {
   isolation: isolate;
@@ -43,7 +51,7 @@ body > header {
 }
 
 /* Définition des polices */
-h1, h2, h3, h4, h5, h6, h7, h8 {
+h1, h2, h3, .project-title, .project-subtitle, .project-section-title {
     font-family: "Space Grotesk", sans-serif;
 }
 
@@ -107,19 +115,19 @@ h3 {
     font-style: italic;
 }
 
-h4 {
+.project-title {
     font-size: 2.1rem;
     color: var(--white);
     font-weight: 900;
 }
 
-h5 {
+#content-list .project-subtitle {
     font-size: 1.5rem;
     font-weight: 450;
     color: var(--light-blue);
 }
 
-h6 {
+.project-section-title {
     font-size: 1.5rem;
     font-weight: 100;
     color: var(--yellow);
@@ -155,6 +163,7 @@ h6 {
 #content .about-me-text .text-highlight1,
 #content .about-me-text .text-highlight2,
 #content .about-me-text strong {
+    font-size: inherit;
     font-weight: 500;
 }
 
@@ -166,32 +175,68 @@ h6 {
 
 .about-me-links {
     display: flex;
+    flex-wrap: wrap;
     justify-content: flex-start;
     gap: 15px;
     width: 100%;
-    margin-top: 12px;
+    margin-top: 5px;
     flex-shrink: 0;
 }
 
-.about-me-links a {
-    display: block;
+.about-me-links :is(a, button) {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
     border-radius: 5px;
+    text-decoration: none;
+}
+
+.about-me-links button {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.about-me-link-label {
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    white-space: nowrap;
+    color: var(--yellow);
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: max-width 0.3s ease, margin-left 0.3s ease, opacity 0.3s ease;
+}
+
+.about-me-links :is(a, button):hover .about-me-link-label,
+.about-me-links :is(a, button):focus-visible .about-me-link-label {
+    max-width: 200px;
+    margin-left: 10px;
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-me-link-label {
+        transition: none;
+    }
 }
 
 .about-me-links img {
     display: block;
-    width: 38px;
-    height: 38px;
+    width: 39px;
+    height: 39px;
     border-radius: 5px;
     object-fit: contain;
     transition: transform 0.3s ease;
 }
 
-.about-me-links img:hover {
+.about-me-links :is(a, button):hover img {
     transform: scale(1.1);
 }
 
-.about-me-links a:focus-visible {
+.about-me-links :is(a, button):focus-visible {
     outline: 2px solid var(--light-blue);
     outline-offset: 4px;
 }
@@ -688,21 +733,16 @@ nav p {
 
 #interactive-menu #profile-picture {
     overflow: visible;
-    border: 1px solid transparent;
-    border-radius: 11px 0 10px 0;
-    background:
-        radial-gradient(ellipse 35% 65% at top right, var(--yellow) 0% 8%, transparent 85%),
-        radial-gradient(ellipse 35% 65% at bottom left, var(--yellow) 0% 8%, transparent 85%),
-        #315A85;
-    background-origin: border-box;
-    background-clip: border-box;
+    border: 1px solid #315A85;
+    border-radius: 11px;
+    background: none;
     isolation: isolate;
 }
 
 #interactive-menu #profile-picture img {
     position: relative;
     z-index: 1;
-    border-radius: 10px 0 9px 0;
+    border-radius: 10px;
 }
 
 .profile-image-frame {
@@ -711,18 +751,12 @@ nav p {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    border-radius: 10px 0 9px 0;
+    border-radius: 10px;
 }
 
 #interactive-menu .home-profile-picture .profile-image-frame img {
-    border-radius: 0;
     width: calc(100% + 1px);
     max-width: none;
-}
-
-#interactive-menu #profile-picture:not(.home-profile-picture),
-#interactive-menu #profile-picture:not(.home-profile-picture) img {
-    border-radius: 0;
 }
 
 #interactive-menu #profile-picture::before,
@@ -731,7 +765,7 @@ nav p {
     position: absolute;
     inset: -1px;
     z-index: 0;
-    border-radius: 11px 0 11px 0;
+    border-radius: 11px;
     background:
         radial-gradient(ellipse 35% 65% at top right, var(--yellow) 0% 8%, transparent 85%),
         radial-gradient(ellipse 35% 65% at bottom left, var(--yellow) 0% 8%, transparent 85%),
@@ -741,11 +775,16 @@ nav p {
 
 #interactive-menu #profile-picture::before {
     inset: -2px;
-    z-index: -1;
-    border-radius: 12px 0 11px 0;
+    z-index: 2;
+    padding: 2px;
+    border-radius: 12px;
     background:
         radial-gradient(ellipse 30% 60% at top right, var(--yellow), transparent 85%),
         radial-gradient(ellipse 30% 60% at bottom left, var(--yellow), transparent 85%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
     opacity: 0.9;
     filter: drop-shadow(0 0 4px rgba(241, 196, 15, 0.7));
 }
@@ -778,6 +817,11 @@ nav p {
 
 #icon-menu img:hover {
     transform: scale(1.1);
+}
+
+#icon-menu img:focus-visible {
+    outline: 2px solid var(--light-blue);
+    outline-offset: 4px;
 }
 
 #icon-menu img {
@@ -849,12 +893,12 @@ nav p {
     font-weight: 500;
 }
 
-#content2 h6 {
+#content2 .project-section-title {
     padding-bottom: 5px;
     font-weight: 400;
 }
 
-#content-list h5 {
+#content-list .project-subtitle {
     padding-bottom: 5px;
     font-weight: 600;
 }
@@ -1011,6 +1055,16 @@ iframe[src*="calameo.com/"] {
     width: 35px ;
 }
 
+#content2 .logo-tools img {
+    width: 37px;
+}
+
+.logo-skills img,
+#content2 .logo-tools img {
+    border-radius: 4px;
+    margin-inline: 1px;
+}
+
 .logo-skills img,
 .logo-tools img {
     filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.35));
@@ -1024,12 +1078,12 @@ iframe[src*="calameo.com/"] {
   
  /*TABLEAU SKILLS*/
 .logo-skills img {
-    max-width: 29px;
-    max-height: 29px;
+    max-width: 31px;
+    max-height: 31px;
  }
 
 .logo-skills {
-    padding-top: 4px;
+    padding-top: 5px;
     padding-bottom: 1px;
 }
   
@@ -1364,10 +1418,14 @@ iframe[src*="calameo.com/"] {
 @media screen and (max-width: 1060px),
        screen and (max-height: 580px),
        screen and (hover: none) and (pointer: coarse) {
+    .about-me-links {
+        justify-content: center;
+    }
+
     #interactive-menu #profile-picture {
         border: 0;
         background: none;
-        border-radius: 10px 0 10px 0;
+        border-radius: 10px;
     }
 
     #interactive-menu::before,
@@ -1446,10 +1504,10 @@ iframe[src*="calameo.com/"] {
     }
 
     #content-list h1,
-    #content-list h4,
-    #content-list h5,
+    #content-list .project-title,
+    #content-list .project-subtitle,
     #content h2,
-    #content2 h6 {
+    #content2 .project-section-title {
         width: 100%;
         text-align: center;
     }
@@ -1471,9 +1529,9 @@ iframe[src*="calameo.com/"] {
 
     .logo-skills img {
         display: block;
-        flex: 0 0 29px;
-        width: 29px;
-        height: 29px;
+        flex: 0 0 31px;
+        width: 31px;
+        height: 31px;
         object-fit: contain;
     }
 
@@ -1585,9 +1643,9 @@ iframe[src*="calameo.com/"] {
 
     #content2 .logo-tools img {
         display: block;
-        flex: 1 1 35px;
+        flex: 1 1 37px;
         min-width: 0;
-        max-width: 35px;
+        max-width: 37px;
         height: auto;
         aspect-ratio: 1;
         object-fit: contain;
@@ -1596,9 +1654,9 @@ iframe[src*="calameo.com/"] {
     #content-list h1,
     #content-list h2,
     #content-list h3,
-    #content-list h4,
-    #content-list h5,
-    #content-list h6 {
+    #content-list .project-title,
+    #content-list .project-subtitle,
+    #content-list .project-section-title {
         width: 100%;
         max-width: 100%;
         align-self: stretch;
@@ -1648,7 +1706,7 @@ iframe[src*="calameo.com/"] {
         font-size: clamp(1.6rem, 6vw, 2.2rem);
     }
 
-    h4 {
+    .project-title {
         font-size: clamp(1.5rem, 5.5vw, 1.9rem);
     }
 
@@ -1893,19 +1951,19 @@ iframe[src*="calameo.com/"] {
     }
 
     #content .logo-skills {
-        padding-top: 3px;
+        padding-top: 4px;
         gap: 8px;
     }
 
     #content .logo-skills:last-child {
-        padding-top: 2px;
+        padding-top: 3px;
     }
 
     #content .logo-skills img {
-        width: 34px;
-        max-width: 34px;
-        height: 34px;
-        max-height: 34px;
+        width: 36px;
+        max-width: 36px;
+        height: 36px;
+        max-height: 36px;
         object-fit: contain;
     }
 
@@ -1997,8 +2055,13 @@ iframe[src*="calameo.com/"] {
     :root {
         font-size: 16px;
         --portfolio-width: 1120px;
-        --portfolio-panel-width: 520px;
+        --portfolio-panel-width: 530px;
         --portfolio-menu-icon: 72px;
+    }
+
+    .lined-title::before,
+    .lined-title::after {
+        max-width: 395px;
     }
 }
 

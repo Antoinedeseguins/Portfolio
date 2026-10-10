@@ -6,12 +6,12 @@
     <link rel="icon" type="image/webp" href="/favicon.webp">
     <!--meta-->
     <meta charset="utf-8">
-    <meta name="description" content="Portfolio, Antoine de Seguins, Game Designer, Game Developer">
+    <meta name="description" content="Discover Source, a 2D exploration game where light helps players navigate a dark maze and defend against creatures.">
     <meta name="keywords" content="Antoine de Seguins, Portfolio, Game Designer, Game Developer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--Title of the page(tab)-->
-    <title>Source</title>
+    <title>Source - Antoine de Seguins</title>
 
     <!--CSS Link-->
     <link href="style.css" rel="stylesheet">
@@ -32,15 +32,14 @@
     <header>
         <nav>
             <a href="index.html">
-                <img class="logo" src="/assets/logo/Header/logo-ads.webp" alt="Logo Antoine de Seguins">
+                <img class="logo" src="/assets/logo/Header/logo-ads.webp" alt="Antoine de Seguins - Home">
             </a>
             <div class="header-links">
                 <a href="index.html"> 
-                    <img 
+                    <img
                         class="logo-link"
                         src="/assets/logo/Header/logo-home.svg"
-                        alt="icon" 
-                        class="icon" 
+                        alt=""
                         onmouseover="this.src='/assets/logo/Header/logo-home-active.svg'"
                         onmouseout="this.src='/assets/logo/Header/logo-home.svg'">
                     <p>
@@ -48,11 +47,10 @@
                     </p>
                 </a>
                 <a href="projects.html">
-                    <img 
+                    <img
                         class="logo-link"
                         src="/assets/logo/Header/logo-portfolio.svg"
-                        alt="icon" 
-                        class="icon" 
+                        alt=""
                         onmouseover="this.src='/assets/logo/Header/logo-portfolio-active.svg'"
                         onmouseout="this.src='/assets/logo/Header/logo-portfolio.svg'">
                     <p>
@@ -69,18 +67,18 @@
     <!--Interactive menu section-->       
     <section id="interactive-menu">
         <div id="profile-picture">
-            <img src="/assets/source/source1.webp" alt="source">
+            <img src="/assets/source/source1.webp" alt="Source">
         </div>
         <div id="icon-menu">
-            <img src="/assets/logo/Menu/logo-aboutme.svg" data-section="source-about">
-            <img src="/assets/logo/Menu/logo-learn.svg" data-section="source-learn">
-            <img src="/assets/logo/Menu/logo-tools.svg" data-section="source-tools">
-            <img src="/assets/logo/Menu/logo-love.svg" data-section="source-love">
+            <img src="/assets/logo/Menu/logo-aboutme.svg" data-section="source-about" alt="About the game" role="button" tabindex="0" aria-controls="content2">
+            <img src="/assets/logo/Menu/logo-learn.svg" data-section="source-learn" alt="What I learned" role="button" tabindex="0" aria-controls="content2">
+            <img src="/assets/logo/Menu/logo-tools.svg" data-section="source-tools" alt="Tools used" role="button" tabindex="0" aria-controls="content2">
+            <img src="/assets/logo/Menu/logo-love.svg" data-section="source-love" alt="What I loved" role="button" tabindex="0" aria-controls="content2">
             
         </div>
         <div id="content-list">
-            <h4>Source</h4>
-            <h5>Student Project</h5>
+            <h1 class="project-title">Source</h1>
+            <p class="project-subtitle">Student Project</p>
             <div id="content2">
             </div>
         </div>
@@ -90,32 +88,32 @@
     <div class="project-container">
         <!-- Image principale (vidéo ou image) -->
         <div>
-            <iframe class ="documents" target=blank src="//v.calameo.com/?bkcode=005912512e8454006d34b&mode=mini&view=slide&clickto=view&clicktarget=_self" target=blank   width="540" height="316" frameborder="0" scrolling="no" allowtransparency allowfullscreen style="margin:0 auto;">
+            <iframe class ="documents" src="https://v.calameo.com/?bkcode=005912512e8454006d34b&mode=mini&view=slide&clickto=view&clicktarget=_self"   width="540" height="316" frameborder="0" scrolling="no" allowtransparency allowfullscreen style="margin:0 auto;" title="Source - project document">
             </iframe>
         </div>
         
         <!-- Grille des quatre images -->
         <div class="image-grid">
             <div class="image-item">
-                <img src="/assets/source/source2.webp" alt="source">
+                <img src="/assets/source/source2.webp" alt="Source">
             </div>
             <div class="image-item">
-                <img src="/assets/source/source3.webp" alt="source">
+                <img src="/assets/source/source3.webp" alt="Source">
             </div>
             <div class="image-item">
-                <img src="/assets/source/source4.webp" alt="source">
+                <img src="/assets/source/source4.webp" alt="Source">
             </div>
             <div class="image-item">
-                <img src="/assets/source/source5.webp" alt="source">
+                <img src="/assets/source/source5.webp" alt="Source">
             </div>
         </div>
     </div>
 
     <div class="image-grid2">
-        <img src="/assets/source/source6.webp" alt="source">
-        <img src="/assets/source/source7.webp" alt="source">
-        <img src="/assets/source/source8.webp" alt="source">
-        <img src="/assets/source/source9.webp" alt="source">
+        <img src="/assets/source/source6.webp" alt="Source">
+        <img src="/assets/source/source7.webp" alt="Source">
+        <img src="/assets/source/source8.webp" alt="Source">
+        <img src="/assets/source/source9.webp" alt="Source">
      </div>
 
     
@@ -128,9 +126,8 @@
 
     <script src="components/interactive-menu/idle-animation.js" defer></script>
     <script src="components/project-gallery.js" defer></script>
-</body>
-
 <!--Script interactive menu-->   
 <script src="/components/source/source-script.js"></script>
+</body>
 
 </html>

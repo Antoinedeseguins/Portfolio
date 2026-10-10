@@ -28,6 +28,20 @@
     let trigger;
     let previousOverflow;
     let previousBodyOverflow;
+    let scrollLocked = false;
+
+    const restorePage = () => {
+        if (dialog.open || !scrollLocked) return;
+        scrollLocked = false;
+        document.documentElement.style.overflow = previousOverflow;
+        document.body.style.overflow = previousBodyOverflow;
+        trigger?.focus({ preventScroll: true });
+    };
+
+    const close = () => {
+        dialog.close();
+        restorePage();
+    };
 
     const show = position => {
         index = (position + images.length) % images.length;
@@ -38,10 +52,12 @@
 
     const open = img => {
         if (dialog.open) return;
+        restorePage();
         trigger = img;
         show(images.findIndex(image => image.src === img.src));
         previousOverflow = document.documentElement.style.overflow;
         previousBodyOverflow = document.body.style.overflow;
+        scrollLocked = true;
         document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
         dialog.showModal();
@@ -61,14 +77,14 @@
         });
     });
 
-    dialog.querySelector('.project-viewer-close').addEventListener('click', () => dialog.close());
+    dialog.querySelector('.project-viewer-close').addEventListener('click', close);
     dialog.querySelector('.project-viewer-prev').addEventListener('click', () => show(index - 1));
     dialog.querySelector('.project-viewer-next').addEventListener('click', () => show(index + 1));
     dialog.querySelectorAll('.project-viewer-prev, .project-viewer-next').forEach(button => {
         button.hidden = images.length < 2;
     });
     dialog.addEventListener('click', event => {
-        if (event.target === dialog) dialog.close();
+        if (event.target === dialog) close();
     });
     dialog.addEventListener('keydown', event => {
         if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
@@ -76,9 +92,5 @@
             show(index + (event.key === 'ArrowRight' ? 1 : -1));
         }
     });
-    dialog.addEventListener('close', () => {
-        document.documentElement.style.overflow = previousOverflow;
-        document.body.style.overflow = previousBodyOverflow;
-        trigger?.focus({ preventScroll: true });
-    });
+    dialog.addEventListener('close', restorePage);
 })();
