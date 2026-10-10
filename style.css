@@ -199,6 +199,37 @@ h3 {
     cursor: pointer;
 }
 
+.about-me-link-label {
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    white-space: nowrap;
+    color: var(--light-blue);
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: max-width 0.7s ease, margin-left 0.7s ease, opacity 0.7s ease;
+}
+
+.about-me-links a:not([download]) .about-me-link-label {
+    transition-duration: 1s;
+}
+
+.about-me-links :is(a, button):hover .about-me-link-label,
+.about-me-links :is(a, button):focus-visible .about-me-link-label {
+    max-width: var(--about-me-label-width, 200px);
+    margin-left: 10px;
+    opacity: 1;
+    color: var(--yellow);
+    transition-duration: 0.7s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-me-link-label {
+        transition: none;
+    }
+}
+
 .about-me-links img {
     display: block;
     width: 42px;

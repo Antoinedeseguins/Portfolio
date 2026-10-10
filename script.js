@@ -1,6 +1,17 @@
 // Section par défaut au démarrage
 let activeSection = "home-aboutme";
 
+// Match the animation range to each label, including short names such as X.
+const updateAboutMeLabelWidth = event => {
+    const link = event.target.closest?.(".about-me-links a");
+    const label = link?.querySelector(".about-me-link-label");
+    if (label) {
+        link.style.setProperty("--about-me-label-width", `${label.scrollWidth}px`);
+    }
+};
+document.addEventListener("pointerover", updateAboutMeLabelWidth);
+document.addEventListener("focusin", updateAboutMeLabelWidth);
+
 // Home image associated with each interactive category.
 const profileImages = {
     "home-aboutme": { src: "/assets/identity/profile.webp", alt: "Portrait of Antoine de Seguins" },
