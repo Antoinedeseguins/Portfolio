@@ -156,8 +156,9 @@ h3 {
 }
 
 #content .about-me-text {
-    font-size: 1.08rem;
+    font-size: 1.09rem;
     font-weight: 350;
+    line-height: 1.72;
 }
 
 #content .about-me-text .text-highlight1,
@@ -179,7 +180,7 @@ h3 {
     justify-content: flex-start;
     gap: 15px;
     width: 100%;
-    margin-top: 5px;
+    margin-top: 12px;
     flex-shrink: 0;
 }
 
@@ -198,35 +199,10 @@ h3 {
     cursor: pointer;
 }
 
-.about-me-link-label {
-    max-width: 0;
-    overflow: hidden;
-    opacity: 0;
-    white-space: nowrap;
-    color: var(--yellow);
-    font-family: "Inter", sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: max-width 0.3s ease, margin-left 0.3s ease, opacity 0.3s ease;
-}
-
-.about-me-links :is(a, button):hover .about-me-link-label,
-.about-me-links :is(a, button):focus-visible .about-me-link-label {
-    max-width: 200px;
-    margin-left: 10px;
-    opacity: 1;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .about-me-link-label {
-        transition: none;
-    }
-}
-
 .about-me-links img {
     display: block;
-    width: 39px;
-    height: 39px;
+    width: 42px;
+    height: 42px;
     border-radius: 5px;
     object-fit: contain;
     transition: transform 0.3s ease;
