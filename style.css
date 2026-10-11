@@ -816,13 +816,6 @@ nav p {
     display: block;
 }
 
-#profile-picture .profile-transition-layer {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    pointer-events: none;
-}
-
 #icon-menu {
     display: flex;
     flex-direction: column;
@@ -1666,7 +1659,7 @@ iframe[src*="calameo.com/"] {
 
 @media screen and (max-width: 576px) {
     .about-me-links {
-        margin-top: 15px;
+        margin-top: 32px;
     }
 
     #interactive-menu,
@@ -1679,6 +1672,16 @@ iframe[src*="calameo.com/"] {
     }
 
     #content .timeline td {
+        font-size: 1rem;
+    }
+
+    #content .timeline td :is(strong, em, span) {
+        font-size: inherit;
+    }
+
+    #content .timeline td:first-child {
+        width: calc(5.75rem * var(--tablet-text-scale, 1));
+        padding-right: calc(8px * var(--tablet-spacing-scale, 1));
         font-size: 0.9rem;
     }
 
@@ -1697,6 +1700,26 @@ iframe[src*="calameo.com/"] {
         height: auto;
         aspect-ratio: 1;
         object-fit: contain;
+    }
+
+    #interactive-menu :is(.logo-skills, .logo-tools) {
+        flex-wrap: nowrap;
+        overflow: hidden;
+        padding-bottom: 8px;
+    }
+
+    #interactive-menu :is(.logo-skills, .logo-tools) img {
+        flex: 0 0 auto;
+    }
+
+    #interactive-menu :is(.logo-skills, .logo-tools) img[hidden] {
+        display: none;
+    }
+
+    #interactive-menu #content2 .logo-tools img {
+        flex: 0 0 37px;
+        width: 37px;
+        height: 37px;
     }
 
     #content-list h1,
@@ -1748,6 +1771,47 @@ iframe[src*="calameo.com/"] {
 
     #interactive-menu {
         padding: 15px;
+    }
+
+    /* Keep category changes inside a stable mobile text area. */
+    #interactive-menu #content-list {
+        height: 420px;
+        min-height: 0;
+        flex: none;
+        overflow: hidden;
+        gap: 8px;
+    }
+
+    #interactive-menu #content-list > h1,
+    #interactive-menu #content-list > .project-subtitle {
+        flex-shrink: 0;
+    }
+
+    #interactive-menu #content,
+    #interactive-menu #content2 {
+        flex: 1 1 0;
+        height: auto;
+        min-height: 0;
+        overflow: hidden;
+        padding: 0;
+    }
+
+    #interactive-menu #content > *,
+    #interactive-menu #content2 > * {
+        flex-shrink: 0;
+    }
+
+    #content .timeline td {
+        padding-block: calc(8px * var(--tablet-spacing-scale, 1));
+    }
+
+    #content .logo-skills {
+        gap: calc(8px * var(--tablet-spacing-scale, 1));
+    }
+
+    #content .logo-skills + p {
+        margin-top: calc(12px * var(--tablet-spacing-scale, 1));
+        padding-top: calc(9px * var(--tablet-spacing-scale, 1));
     }
 
     h1 {
@@ -1821,7 +1885,7 @@ iframe[src*="calameo.com/"] {
 
     #content .division-tableau-love {
         grid-template-columns: repeat(2, minmax(0, max-content));
-        gap: 8px 20px;
+        gap: calc(8px * var(--tablet-spacing-scale, 1)) calc(20px * var(--tablet-spacing-scale, 1));
     }
 
     #content .colone-tableau-love {
@@ -1865,10 +1929,6 @@ iframe[src*="calameo.com/"] {
     #interactive-menu #profile-picture img {
         height: auto;
         aspect-ratio: 16 / 9;
-    }
-
-    #interactive-menu #profile-picture .profile-transition-layer {
-        height: 100%;
     }
 
     #interactive-menu #content-list {
@@ -2020,29 +2080,153 @@ iframe[src*="calameo.com/"] {
     }
 }
 
-@media screen and (min-width: 530px) and (max-width: 1060px) {
+/* Tablet: vertical photo, full-height menu and text in a fixed-height banner. */
+@media screen and (min-width: 577px) and (max-width: 1060px),
+       screen and (min-width: 577px) and (max-width: 1366px) and (hover: none) and (pointer: coarse) {
     #interactive-menu,
-    .project-grid-home,
-    .lined-title:has(+ .project-grid-home) {
-        width: calc(100% - 40px);
-        max-width: 740px;
-        margin-left: auto;
-        margin-right: auto;
+    .project-grid,
+    .project-grid.project-grid-home,
+    .lined-title,
+    .lined-title:has(+ .project-grid-home),
+    .image-grid2,
+    .project-container {
+        width: calc(100% - 48px);
+        max-width: 960px;
+        margin-inline: auto;
     }
 
-    #profile-picture,
-    #icon-menu,
-    #content-list {
-        max-width: 700px;
-        align-self: center;
+    #interactive-menu {
+        display: grid;
+        grid-template-columns: minmax(0, 0.4fr) 89px minmax(0, 1fr);
+        grid-template-rows: minmax(0, 400px);
+        align-items: start;
+        gap: 18px;
+        padding: 20px;
+        height: 440px;
+        border-radius: 12px;
+    }
+
+    #interactive-menu #profile-picture {
+        display: block;
+        width: 100%;
+        max-width: none;
+        height: 400px;
+        aspect-ratio: auto;
+        align-self: start;
+        overflow: hidden;
+    }
+
+    #interactive-menu #profile-picture img,
+    #interactive-menu .home-profile-picture .profile-image-frame img {
+        width: 100%;
+        max-width: none;
+        height: 100%;
+        aspect-ratio: auto;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    #interactive-menu #icon-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-self: start;
+        width: 100%;
+        max-width: none;
+        height: 400px;
+        gap: 20px;
+        margin: 0;
+        padding: 0 16px 0 0;
+        border-right: 1px solid rgba(74, 144, 226, 0.22);
+    }
+
+    #interactive-menu #icon-menu img {
+        flex: 0 0 72px;
+        width: 72px;
+        max-width: 72px;
+        height: 72px;
+    }
+
+    #interactive-menu #content-list {
+        flex: none;
+        width: 100%;
+        max-width: none;
+        align-self: start;
+        gap: 8px;
+        height: 400px;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    #content-list h1,
+    #content-list .project-title,
+    #content-list .project-subtitle,
+    #content h2,
+    #content2 .project-section-title {
+        text-align: left;
+    }
+
+    #content-list h1 {
+        font-size: clamp(1.5rem, 2.8vw, 2rem);
+    }
+
+    .about-me-links {
+        justify-content: flex-start;
+    }
+
+    #content,
+    #content2 {
+        height: auto;
+        min-height: 0;
+        padding: 0;
+    }
+
+    #interactive-menu #content-list > h1,
+    #interactive-menu #content-list > .project-subtitle {
+        flex-shrink: 0;
+    }
+
+    #interactive-menu #content,
+    #interactive-menu #content2 {
+        flex: 1 1 0;
+        min-height: 0;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        padding-right: 0;
+    }
+
+    #interactive-menu #content > *,
+    #interactive-menu #content2 > * {
+        flex-shrink: 0;
+    }
+
+    #content .about-me-text {
+        font-size: 1rem;
+        line-height: 1.75;
     }
 
     #content:has(.logo-skills) p {
-        text-align: center;
+        text-align: left;
     }
 
     #content .logo-skills {
-        justify-content: center;
+        justify-content: flex-start;
+        gap: calc(8px * var(--tablet-spacing-scale, 1));
+    }
+
+    #content p + .logo-skills {
+        margin-top: calc(6px * var(--tablet-spacing-scale, 1));
+    }
+
+    #content .logo-skills + p {
+        margin-top: calc(12px * var(--tablet-spacing-scale, 1));
+        padding-top: calc(9px * var(--tablet-spacing-scale, 1));
+    }
+
+    #content .division-tableau-love {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding-left: 0;
+        gap: calc(12px * var(--tablet-spacing-scale, 1)) calc(20px * var(--tablet-spacing-scale, 1));
     }
 
     #content .timeline,
@@ -2052,44 +2236,241 @@ iframe[src*="calameo.com/"] {
     }
 
     #content .timeline tr {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: calc(6.5rem * var(--tablet-text-scale, 1)) minmax(0, 1fr);
         align-items: baseline;
-        gap: 12px;
-        padding: 6px 0;
+        gap: calc(16px * var(--tablet-text-scale, 1));
+        padding: calc(10px * var(--tablet-text-scale, 1)) 0;
     }
 
     #content .timeline tr + tr {
-        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        border-top: 0;
+    }
+
+
+    #content .timeline td {
+        display: block;
+        width: auto;
+        min-width: 0;
+        padding: 0;
+        text-align: left;
     }
 
     #content .timeline tr + tr td {
         border-top: 0;
     }
 
-    #content .timeline td {
-        display: block;
-        width: auto;
-        min-width: 0;
-        padding: 3px 0;
-        text-align: left;
-        vertical-align: middle;
-    }
-
     #content .timeline td:first-child {
         width: auto;
-        flex: 0 0 auto;
-        padding-left: 0;
-        padding-right: 0;
+        padding: 0;
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+    }
+
+    .project-container {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .project-container iframe[src*="youtube.com/embed/"] {
+        height: auto;
+        aspect-ratio: 16 / 9;
     }
 }
 
-/* Keep the validated Full HD scale stable at every desktop width. */
+/* Experience timeline decoration on desktop and tablet. */
+@media screen and (min-width: 577px) {
+    #content .timeline,
+    #content .timeline tbody {
+        display: block;
+        width: 100%;
+    }
+
+    #content .timeline tbody {
+        padding-left: 4px;
+    }
+
+    #content .timeline tr {
+        display: grid;
+        position: relative;
+        grid-template-columns: calc(6.5rem * var(--tablet-text-scale, 1)) minmax(0, 1fr);
+        align-items: baseline;
+        gap: 12px;
+        border-left: 1px solid rgba(74, 144, 226, 0.3);
+        padding: calc(4px * var(--tablet-spacing-scale, 1)) 0 calc(4px * var(--tablet-spacing-scale, 1)) 18px;
+    }
+
+    #content .timeline tr::before {
+        content: "";
+        position: absolute;
+        left: -4px;
+        top: calc(4px * var(--tablet-spacing-scale, 1) + 0.65em);
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--light-blue);
+    }
+
+    #content .timeline tr + tr {
+        border-top: 0;
+    }
+
+    #content .timeline tr + tr::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 18px;
+        right: 0;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.15);
+        pointer-events: none;
+    }
+
+    #content .timeline tr + tr td {
+        border-top: 0;
+    }
+
+    #content .timeline td,
+    #content .timeline td:first-child {
+        display: block;
+        width: auto;
+        min-width: 0;
+        padding: 0;
+        text-align: left;
+    }
+}
+
+@media screen and (min-width: 577px) and (max-width: 1060px),
+       screen and (min-width: 577px) and (max-width: 1366px) and (hover: none) and (pointer: coarse) {
+    #content .timeline tr {
+        padding-block: calc(8px * var(--tablet-spacing-scale, 1));
+    }
+
+    #content .timeline tr::before {
+        top: calc(8px * var(--tablet-spacing-scale, 1) + 0.65em);
+    }
+}
+
+/* Mobile experience timeline, aligned to the left. */
+@media screen and (max-width: 576px) {
+    #interactive-menu #content > .timeline {
+        width: 78%;
+        margin-inline: auto;
+    }
+
+    #content .timeline,
+    #content .timeline tbody {
+        display: block;
+        width: 100%;
+    }
+
+    #content .timeline tr {
+        display: block;
+        position: relative;
+        border-left: 1px solid rgba(74, 144, 226, 0.3);
+        padding-left: 18px;
+        padding-block: calc(10px * var(--tablet-spacing-scale, 1));
+    }
+
+    #content .timeline tr::before {
+        content: "";
+        position: absolute;
+        left: -4px;
+        top: calc(10px * var(--tablet-spacing-scale, 1) + 5px);
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--light-blue);
+    }
+
+    #content .timeline tbody {
+        padding-left: 4px;
+    }
+
+    #content .timeline tr:nth-child(5) {
+        display: none;
+    }
+
+    #content .timeline tr + tr {
+        border-top: 0;
+    }
+
+    #content .timeline td {
+        display: block;
+        width: 100%;
+        padding: 0;
+        line-height: 1.3;
+        text-align: left;
+    }
+
+    #content .timeline tr + tr td {
+        border-top: 0;
+    }
+
+    #content .timeline td:first-child {
+        width: 100%;
+        padding: 0 0 2px;
+        font-size: 0.75rem;
+        color: var(--grey);
+        line-height: 1.3;
+    }
+
+    #content .timeline .experience-detail {
+        display: none;
+    }
+
+    #content .timeline .tableau-xp > strong,
+    #content .timeline .tableau-xp > .text-highlight2 {
+        display: block;
+    }
+
+    #content .timeline .tableau-xp > .text-highlight2 {
+        font-size: 0.9rem;
+        line-height: 1.3;
+    }
+}
+
+/* Measure the actual table content instead of stretching it to fill the panel. */
+@media screen and (max-width: 1060px),
+       screen and (min-width: 577px) and (max-width: 1366px) and (hover: none) and (pointer: coarse) {
+    #interactive-menu #content > .timeline {
+        flex: 0 0 auto;
+    }
+}
+
+/* Continuous desktop scale keeps Full HD unchanged and avoids zoom jumps. */
 @media screen and (min-width: 1061px) and (min-height: 581px) and (hover: hover) and (pointer: fine) {
+    #interactive-menu #content > .timeline {
+        display: flex;
+        flex: 1 1 0;
+        min-height: 0;
+    }
+
+    #content .timeline tbody {
+        display: grid;
+        grid-template-rows: repeat(5, minmax(min-content, 1fr));
+        width: 100%;
+    }
+
+    #content .timeline tr {
+        align-items: center;
+    }
+
+    #content .timeline tr::before {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    #content .timeline tr + tr {
+        border-top: 0;
+    }
+
     body {
-        zoom: 0.855;
-        min-height: calc(100vh / 0.855);
+        zoom: var(--desktop-scale, 0.855);
+        min-height: calc(100vh / var(--desktop-scale, 0.855));
     }
 
     :root {
@@ -2102,20 +2483,5 @@ iframe[src*="calameo.com/"] {
     .lined-title::before,
     .lined-title::after {
         max-width: 395px;
-    }
-}
-
-/* Large viewport presets also apply in responsive preview tools. */
-@media screen and (min-width: 1921px) and (min-height: 581px) and (hover: hover) and (pointer: fine) {
-    body {
-        zoom: 1.5675;
-        min-height: calc(100vh / 1.5675);
-    }
-}
-
-@media screen and (min-width: 3200px) and (min-height: 581px) and (hover: hover) and (pointer: fine) {
-    body {
-        zoom: 1.7325;
-        min-height: calc(100vh / 1.7325);
     }
 }
