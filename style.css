@@ -156,9 +156,49 @@ h3 {
 }
 
 #content .about-me-text {
-    font-size: 1.09rem;
+    font-size: 1.06rem;
     font-weight: 350;
-    line-height: 1.85;
+    line-height: 1.76;
+    text-align: left;
+}
+
+#interactive-menu #content .about-me-body {
+    position: relative;
+    width: 100%;
+}
+
+@media screen and (min-width: 1061px) and (hover: hover) and (pointer: fine) {
+#interactive-menu #content .about-me-body::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    bottom: 4px;
+    width: 1px;
+    background: rgba(74, 144, 226, 0.35);
+    pointer-events: none;
+}
+}
+
+#interactive-menu #content .about-me-body :is(.about-me-text, .about-me-links) {
+    padding-left: 15px;
+}
+
+@media screen and (min-width: 1061px) and (hover: hover) and (pointer: fine) {
+    #interactive-menu #content .about-me-body {
+        margin-top: 6px;
+    }
+
+    #interactive-menu #content .about-me-body .about-me-links {
+        padding-left: 23px;
+    }
+}
+
+@media screen and (min-width: 577px) {
+    #interactive-menu #content :is(.about-me-text, .about-me-links, .home-love-icons) {
+        padding-left: 15px;
+        box-sizing: border-box;
+    }
 }
 
 #content .about-me-text .text-highlight1,
@@ -1106,6 +1146,113 @@ iframe[src*="calameo.com/"] {
   }
   
  /*TABLEAU SKILLS*/
+#content .skills-category-title {
+    color: var(--yellow);
+    font-size: 1rem;
+    font-weight: 600;
+    font-style: normal;
+    line-height: 1.4;
+    margin-bottom: 6px;
+}
+
+#content .skills-category-title::before {
+    content: "";
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: var(--light-blue);
+    vertical-align: middle;
+}
+
+#interactive-menu #content p.skills-summary {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    line-height: 1.5;
+}
+
+#interactive-menu #content .skills-group {
+    position: relative;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+#interactive-menu #content .skills-group + .skills-group {
+    margin-top: 14px;
+}
+
+@media screen and (min-width: 1061px) and (hover: hover) and (pointer: fine) {
+#interactive-menu #content .skills-group:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: calc(0.75rem + 8.5px);
+    width: 1px;
+    height: calc(100% - 3px);
+    background: rgba(74, 144, 226, 0.35);
+    pointer-events: none;
+}
+}
+
+#interactive-menu #content .skills-group .skills-summary {
+    padding-left: 15px;
+}
+
+#interactive-menu #content .skills-group .skills-category-title::before {
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+    transform: translateY(-50%);
+    margin: 0;
+    z-index: 1;
+}
+
+#interactive-menu #content .skills-category-title {
+    margin: 0;
+}
+
+#interactive-menu #content .skills-category-title::after {
+    content: " :";
+}
+
+#interactive-menu #content .skills-description {
+    font-size: 0.95rem;
+    font-weight: 350;
+}
+
+@media screen and (max-width: 576px) {
+    #interactive-menu #content .skills-description {
+        font-size: 0.88rem;
+    }
+}
+
+#interactive-menu #content .logo-skills + p.skills-summary {
+    margin-top: 14px;
+    padding-top: 0;
+}
+
+#interactive-menu #content .logo-skills + p.skills-summary::before {
+    display: none;
+}
+
+#interactive-menu #content:has(.skills-description) .logo-skills {
+    gap: 7px;
+    margin-top: 5px;
+    padding-block: 0;
+    padding-left: 15px;
+}
+
+#interactive-menu #content:has(.skills-description) .logo-skills img {
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+    max-width: 32px;
+    max-height: 32px;
+    object-fit: contain;
+}
+
 .logo-skills img {
     max-width: 31px;
     max-height: 31px;
@@ -2201,8 +2348,8 @@ iframe[src*="calameo.com/"] {
     }
 
     #content .about-me-text {
-        font-size: 1rem;
-        line-height: 1.75;
+        font-size: 0.97rem;
+        line-height: 1.66;
     }
 
     #content:has(.logo-skills) p {
@@ -2354,11 +2501,41 @@ iframe[src*="calameo.com/"] {
     }
 }
 
+@media screen and (min-width: 1061px) and (hover: hover) and (pointer: fine) {
+    #content .timeline tr {
+        border-left: 0;
+    }
+
+    #interactive-menu #content .timeline tr:not(:last-child) td:first-child::before {
+        content: "";
+        position: absolute;
+        left: -1px;
+        top: calc(50% + 8.5px);
+        width: 1px;
+        height: calc(100% - 17px);
+        background: rgba(74, 144, 226, 0.35);
+        pointer-events: none;
+    }
+}
+
 /* Mobile experience timeline, aligned to the left. */
+@media screen and (max-width: 1060px), screen and (hover: none), screen and (pointer: coarse) {
+    #interactive-menu #content .timeline tr {
+        border-left: 0;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #interactive-menu #content .timeline tr {
+        border-left: 1px solid rgba(74, 144, 226, 0.3);
+    }
+}
+
 @media screen and (max-width: 576px) {
     #interactive-menu #content > .timeline {
         width: 78%;
-        margin-inline: auto;
+        margin-left: calc(11% + 17px);
+        margin-right: auto;
     }
 
     #content .timeline,
