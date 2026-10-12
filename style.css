@@ -167,21 +167,8 @@ h3 {
     width: 100%;
 }
 
-@media screen and (min-width: 1061px) and (hover: hover) and (pointer: fine) {
-#interactive-menu #content .about-me-body::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 4px;
-    bottom: 4px;
-    width: 1px;
-    background: rgba(74, 144, 226, 0.35);
-    pointer-events: none;
-}
-}
-
 #interactive-menu #content .about-me-body :is(.about-me-text, .about-me-links) {
-    padding-left: 15px;
+    padding-left: 0;
 }
 
 @media screen and (min-width: 1061px) and (hover: hover) and (pointer: fine) {
@@ -190,7 +177,7 @@ h3 {
     }
 
     #interactive-menu #content .about-me-body .about-me-links {
-        padding-left: 23px;
+        padding-left: 0;
     }
 }
 
@@ -1181,19 +1168,6 @@ iframe[src*="calameo.com/"] {
 
 #interactive-menu #content .skills-group + .skills-group {
     margin-top: 14px;
-}
-
-@media screen and (min-width: 1061px) and (hover: hover) and (pointer: fine) {
-#interactive-menu #content .skills-group:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    left: 3px;
-    top: calc(0.75rem + 8.5px);
-    width: 1px;
-    height: calc(100% - 3px);
-    background: rgba(74, 144, 226, 0.35);
-    pointer-events: none;
-}
 }
 
 #interactive-menu #content .skills-group .skills-summary {
